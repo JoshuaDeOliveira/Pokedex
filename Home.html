@@ -5,16 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projeto Pokedex</title>
   <link rel="stylesheet" href="CSS/Estilos/Global.css"> <!--CSS para a globalização dos Estilos-->
+  <link rel="stylesheet" href="CSS/Estilos/Header.css"> <!--CSS para o Header-->
 
-  <link rel="stylesheet" href="CSS/Estilos/Home.css">
+  <link rel="stylesheet" href="CSS/Estilos/Home.css"> <!--Estilos de -->
 </head>
 <body>
-  <header>
-    <div class="Left">
-      <img src="" alt="">
-      <h1>Pokedex</h1>
+  <picture>
+		<source type="image/avif" media="(min-width: 900px)" width="1140" height="100"
+			srcset="https://img.pokemondb.net/design/avif/header-lg.avif">
+		<source type="image/avif" media="(min-width: 620px)" width="807" height="100"
+			srcset="https://img.pokemondb.net/design/avif/header-md.avif, https://img.pokemondb.net/design/avif/header-md-2x.avif 2x">
+		<source type="image/avif" width="367" height="100"
+			srcset="https://img.pokemondb.net/design/avif/header-sm.avif, https://img.pokemondb.net/design/avif/header-sm-2x.avif 2x">
+		<source type="image/png" media="(min-width: 900px)" width="1140" height="100"
+			srcset="https://img.pokemondb.net/design/header-lg.png">
+		<source type="image/png" media="(min-width: 620px)" width="807" height="100"
+			srcset="https://img.pokemondb.net/design/header-md.png, https://img.pokemondb.net/design/header-md-2x.png 2x">
+		<img src="https://img.pokemondb.net/design/header-sm.png" alt="Pokemon Database logo, with Scizor"
+			srcset="https://img.pokemondb.net/design/header-sm-2x.png 2x" fetchpriority="high">
+	</picture>
+  <nav class="Grid-Menu">
+    <div class="Data-Menu">
+      <img src="./CSS/Imagens/Egg.png" alt="">
+      <p>Gerações</p>
     </div>
-    
-  </header>
+    <div class="Data-Menu">
+      <img src="./CSS/Imagens/pokeball.png" alt="">
+      <p>Pokedex Interativa</p>
+    </div>
+    <div class="Data-Menu">
+      <img src="./CSS/Imagens/Map.png" alt="">
+      <p>National Pokedex</p>
+    </div>
+    <div class="Data-Menu Pesquisa-Div">
+      <input type="text" class="Pesquisar" placeholder="Search">
+      <button class="Enviar">
+        <img src="./CSS/Imagens/search-icon.png" alt="">
+      </button>
+    </div>
+  </nav>
+  <main>
+
+  </main>
 </body>
 </html>
