@@ -1,0 +1,68 @@
+main{
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  padding: 24px 32px;
+  max-width: 1224px;
+  background-color: white;
+}
+
+.Titulo{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: var(--Titulo);
+  margin-bottom: 5px;
+}
+
+/*Listas Regioes*/
+
+.Lista-Regioes{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+  gap: 20px;
+  padding: 20px;
+}
+
+.Regioes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Regioes > img{
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.Explicação{
+  background-color: #F0F0F0;
+  padding: 15px;
+  margin-bottom: 25px;
+}
+
+.Explicação > p{
+  margin: 15px 5px;
+}
+
+.NÃO-TOQUE{
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+/*Lista de Pokemons*/
+
+.Nomes-Regionais{
+  font-size: 19pt;
+  margin-bottom: 10px;
+}
+
+.Pokemons{
+  margin-top: 20px;
+}
+

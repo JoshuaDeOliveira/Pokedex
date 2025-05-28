@@ -4,13 +4,26 @@ body{
   background-size: 16px 16px;
 }
 
-picture{
-  position: relative;
-  background-color: #242424;
-  width: 100%;
-  height: 124px;
+header{
   display: flex;
   justify-content: center;
+  height: 124px;
+  background-color: #202020;
+  background-image: linear-gradient(#3b3b3b, #202020);
+}
+
+picture{
+  display: flex;
+  justify-content: center;
+}
+
+.Grid-header{
+  overflow: hidden;
+}
+
+picture > img{
+  max-width: none;
+  display: block;
 }
 
 nav{
@@ -18,7 +31,6 @@ nav{
   margin: 0px auto;
   margin-top: -24px;
   max-width: 1224px;
-  height: 48px;
   background-color: #494444;
   z-index: 100;
 }
@@ -43,6 +55,10 @@ nav{
   font-weight: bolder;
   cursor: pointer;
   transition: background-color 0.4s;
+}
+
+.Data-Menu > p{
+  text-align: center;
 }
 
 .Data-Menu:hover{
@@ -71,15 +87,57 @@ nav{
 
 .Pesquisa-Div{
   padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bolder;
 }
 
 .Enviar{
   border-radius: 0px 5px 5px 0px;
   background-color: gray;
   border: none;
-  padding: 4px;
+  padding: 8px;
 }
 
 .Enviar > img{
   height: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .Data-Menu{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 630px){
+  .Grid-Menu{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .Pesquisa-Div{
+    grid-column: span 3;
+  }
+}
+
+/*Footer*/
+
+footer{
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  padding: 10px;
+  color: white;
+  position: relative;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 100;
+}
+
+footer > span{
+  text-align: center;
+  margin: auto;
 }

@@ -1,0 +1,187 @@
+main{
+  position: relative;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 52px;
+  max-width: 1224px;
+  background-color: #FAD343;
+}
+
+.Titulo{
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.btn{
+  z-index: 999999;
+  display: block;
+}
+
+.btn > button > img{
+  height: 24px;
+}
+
+.btn > button{
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.Header-Poke{
+  padding: 10px;
+  padding-bottom: 0px;
+  position: relative;
+}
+
+.Nomes-Pokemon{
+  font-family: var(--Nomes);
+  font-size: 50px;
+}
+
+.Sprite_Pokemon{
+  z-index: 90;
+  bottom: 20px;
+}
+
+.Pokeball-Ani{
+  z-index: 1;
+  bottom: 5px;
+  height: 160px;
+  position: absolute;
+}
+
+.Top{
+  display: flex;
+  justify-content: center;
+}
+
+.Main-Info{
+  background-color: rgb(245, 242, 242);
+  box-shadow: 2px -1px 16px 0px black;
+  border-radius: 45px 45px 0px 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/*Area dos Detalhes "Normais"*/
+
+.Selecionadores{
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: gray;
+  border-bottom: 1px solid rgb(189, 188, 188);
+}
+
+.Guias{
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.Especie-Pokemon{
+  font-size: 23px;
+  font-style: oblique;
+}
+
+.Pokedex-Infos, .Status-Infos{
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.Lista-Corporal{
+  list-style: none;
+  margin-left: 10px;
+}
+
+.Detalhes-Corporais{
+  font-size: 22px;
+}
+
+.Info-Corpo{
+  display: flex;
+  width: max-content;
+  margin: 20px auto;
+  margin-top: 30px;
+  background-color:#F9F9F9;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 1px 3px 12px 1px rgba(34, 34, 34, 0.658)
+}
+
+.Type-Pokemon{
+  width: max-content;
+  margin: 10px auto;
+  margin-top: 25px;
+}
+
+.Div-Type{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  border-radius: 15px;
+  background-color: #F2D94E;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.616);
+}
+
+.Type-Icon{
+  height: 22px;
+}
+
+.Infos{
+  margin: 10px 0px;
+  font-size: 18px;
+}
+
+.ID{
+  padding: 5px;
+  background-color: #D0D0D0;
+  border-radius: 5px;
+}
+
+.Gener{
+  padding: 2px;
+  font-weight: bolder;
+  color: white;
+}
+
+.Masculino > i{
+  background-color: blue;
+}
+
+.Feminino > i {
+  color: black;
+  background-color: rgb(250, 168, 182);
+}
+
+.Info-Dex{
+  margin: 20px 0px;
+}
+
+/*Informações Status*/
+
+.Stat{
+  display: flex;
+  margin: 15px 0px;
+  justify-content: space-between;
+}
+
+.Stat > .Numb{
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Stat > meter{
+  width: 60%;
+}

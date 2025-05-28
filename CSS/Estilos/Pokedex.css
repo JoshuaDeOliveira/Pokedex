@@ -1,0 +1,82 @@
+main{
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 24px 32px;
+  max-width: 1224px;
+  background: linear-gradient(to right, #e67e64, #597fd1);
+}
+
+.Titulo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.Buttons{
+  background-color: #444;
+  padding: 10px 40px;
+  border: 1px solid black;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  box-shadow: -4px 4px black;
+}
+
+.Next{
+  position: absolute;
+  top: 540px;
+  right: 90px;
+}
+
+.Right{
+  position: absolute;
+  top: 540px;
+  left: 60px;
+}
+
+.Nome-Pokemon{
+  position: absolute;
+  top: 350px;
+  right: 110px;
+  font-size: 18pt;
+  font-family: var(--Nomes);
+}
+
+.Pokemon-Sprite{
+  position: absolute;
+  height: 120px;
+  top: 189px;
+  left: 140px;
+}
+
+.Numero-Pokemon{
+  font-size: 15pt;
+  font-family: var(--Nomes);
+  font-weight: bolder;
+  position: absolute;
+  top: 355px;
+  right: 210px;
+}
+
+.Pesquisar-Pokemon{
+  position: absolute;
+  box-shadow: -4px 4px gray;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-size: 14pt;
+  padding: 10px;
+  bottom: 160px;
+  right: 85px;
+  width: 280px;
+}
+
+.Pokedex-Interativa{
+  position: relative;
+  z-index: 300;
+}

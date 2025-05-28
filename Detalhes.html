@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Pokedex</title>
+  <link rel="shortcut icon" href="./CSS/Imagens/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="CSS/Estilos/Global.css"> <!--CSS para a globalização dos Estilos-->
+  <link rel="stylesheet" href="CSS/Estilos/Header.css"> <!--CSS para o Header-->
+  <link rel="stylesheet" href="CSS/Estilos/Unico.css">
+</head>
+<body>
+  <header>
+    <div class="Grid-header">
+      <picture>
+          <source type="image/avif" media="(min-width: 900px)" width="1140" height="100"
+            srcset="https://img.pokemondb.net/design/avif/header-lg.avif">
+          <source type="image/avif" media="(min-width: 620px)" width="807" height="100"
+            srcset="https://img.pokemondb.net/design/avif/header-md.avif, https://img.pokemondb.net/design/avif/header-md-2x.avif 2x">
+          <source type="image/avif" width="367" height="100"
+            srcset="https://img.pokemondb.net/design/avif/header-sm.avif, https://img.pokemondb.net/design/avif/header-sm-2x.avif 2x">
+          <source type="image/png" media="(min-width: 900px)" width="1140" height="100"
+            srcset="https://img.pokemondb.net/design/header-lg.png">
+          <source type="image/png" media="(min-width: 620px)" width="807" height="100"
+            srcset="https://img.pokemondb.net/design/header-md.png, https://img.pokemondb.net/design/header-md-2x.png 2x">
+          <img src="https://img.pokemondb.net/design/header-sm.png" alt="Pokemon Database logo, with Scizor"
+            srcset="https://img.pokemondb.net/design/header-sm-2x.png 2x" fetchpriority="high">
+        </picture>
+    </div>
+  </header>
+  <nav class="Grid-Menu">
+    <div class="Data-Menu National-Pokedex">
+      <img src="./CSS/Imagens/Map.png" alt="">
+      <p>National Pokedex</p>
+    </div>
+    <div class="Data-Menu Pokedex-Interativa">
+      <img src="./CSS/Imagens/pokeball.png" alt="">
+      <p>Pokedex Interativa</p>
+    </div>
+    <div class="Data-Menu Gerações">
+      <img src="./CSS/Imagens/Egg.png" alt="">
+      <p>Gerações</p>
+    </div>
+    <div class="Pesquisa-Div">
+      <input type="text" class="Pesquisar" placeholder="Search">
+      <button class="Enviar">
+        <img src="./CSS/Imagens/search-icon.png" alt="">
+      </button>
+    </div>
+  </nav>
+  <main>
+    <div class="Header-Poke">
+      <div class="btn">
+        <button>
+          <img src="./CSS/Imagens/botao-de-seta-para-a-esquerda-do-teclado.png" alt="">
+        </button>
+      </div>
+      <div class="Titulo">
+        <span class="Nomes-Pokemon">ピカチュ</span>
+        <span class="Nomes-Pokemon">Pikachu</span>
+      </div>
+      <div class="Top">
+        <img class="Sprite_Pokemon" src="./CSS/Imagens/Detalhes/25.svg" alt="">
+        <img class="Pokeball-Ani" src="./CSS/Imagens/pokeball.png" alt="">
+      </div>
+    </div>
+    <div class="Main-Info">
+      <div class="Selecionadores">
+        <span class="Guias">Overview</span>
+        <span class="Guias">Stats</span>
+        <span class="Guias">Evolution</span>
+      </div>
+      <!-- ABA OVERVIEW. ESSA ABA FUTURAMENTE SERÁ GERADA COM JAVASCRIPT.
+      <div class="Pokedex-Infos">
+        <div class="Pokedex-Descrição">
+          <h2 class="Especie-Pokemon">MOUSE POKEMON</h2>
+          <p class="Descrição">When several of these POKéMON gather, their electricity could build and cause lightning storms.</p>
+        </div>
+        <div class="Info-Corpo">
+          <ul class="Lista-Corporal">
+            <li class="Detalhes-Corporais">Height</li>
+            <li class="Tamanho Detalhes-Corporais">0,4m</li>
+          </ul>
+          <ul class="Lista-Corporal">
+            <li class="Detalhes-Corporais">Weight</li>
+            <li class="Peso Detalhes-Corporais">6kg</li>
+          </ul>
+        </div>
+        <div class="Type-Pokemon">
+          <div class="Div-Type">
+            <img class="Type-Icon" src="./CSS/Imagens/Types/electric.svg" alt="">
+          </div>
+        </div>
+        <div class="Info-Dex">
+          <p class="Infos">Id: <span class="ID">#025</span></p>
+          <p class="Infos">Gender: 
+            <span class="Masculino"><i class="Gener">&#9794;</i> 50%</span> 
+            <span class="Feminino"><i class="Gener">&female;</i> 50%</span>
+          </p>
+          <p class="Infos">Abilities: static, lightning-rod</p>
+          <p class="Infos">Catch Rate: 190 (74.51% chance)</p>
+          <p class="Infos">Base Friendship: 50 (normal)</p>
+          <p class="Infos">Base Exp: 112</p>
+          <p class="Infos">Growth Rate: medium</p>
+          <p class="Infos">Egg Groups: Ground, Fairy</p>
+        </div>
+      </div>
+      -->
+      <div class="Status-Infos">
+        <div class="Status">
+          <div class="Stat">
+            <div class="Numb">
+              <span>Health:</span>
+              <span>35</span>
+            </div>
+            <meter value="0.35">35%</meter>
+          </div>
+          <div class="Stat">
+            <div class="Numb">
+              <span>Attack:</span>
+              <span>55</span>
+            </div>
+            <meter value="0.55">55%</meter>
+          </div>
+          <div class="Stat">
+            <div class="Numb">
+              <span>Defense:</span>
+              <span>40</span>
+            </div>
+            <meter value="0.4">40%</meter>
+          </div>
+          <div class="Stat">
+            <div class="Numb">
+              <span>Sp.Atk:</span>
+              <span>50</span>
+            </div>
+            <meter value="0.5">50%</meter>
+          </div>
+          <div class="Stat">
+            <div class="Numb">
+              <span>Sp.Def:</span>
+              <span>50</span>
+            </div>
+            <meter value="0.5">50%</meter>
+          </div>
+          <div class="Stat">
+            <div class="Numb">
+              <span>Speed:</span>
+              <span>90</span>
+            </div>
+            <meter value="0.9">90%</meter>
+          </div>
+          <div class="Stat">
+            <div class="Numb">
+              <span>Total::</span>
+              <span>320</span>
+            </div>
+            <meter value="0.7">70%</meter>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <span>All content & design © Pokémon Database, 2008-2025. Pokémon images & names © 1995-2025 Nintendo/Game Freak.</span>
+    <span>Esse site é apenas uma paradia criada para estudos por Joshua Oliveira</span>
+  </footer>
+
+  <script type="module" src="./Data/Scripts/Home.js"></script>
+</body>
+</html>

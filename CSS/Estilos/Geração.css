@@ -1,0 +1,65 @@
+main{
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  padding: 24px 32px;
+  max-width: 1224px;
+  background-color: white;
+}
+
+.Titulo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.Titulo > img{
+  margin-right: 15px;
+  height: 48px;
+}
+
+.Titulo > span{
+  font-size: 40px;
+  font-family: var(--Titulo);
+}
+
+.Gerações-Escolhidas{
+  background-color: #E3F5FD;
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.Geração-Guia{
+  cursor: pointer;
+  color: #276DC3;
+  padding: 5px;
+  border-right: 1px solid #dbdbdb;
+  border-left: 1px solid #dbdbdb;
+}
+
+.Explicação{
+  background-color: #F0F0F0;
+  padding: 10px;
+  margin-bottom: 25px;
+}
+
+.Explicação > p{
+  margin: 15px 5px;
+}
+
+.NÃO-TOQUE{
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.Nomes-Regionais{
+  font-size: 18pt;
+}
