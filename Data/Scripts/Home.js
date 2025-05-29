@@ -1,5 +1,6 @@
-document.querySelector('.National-Pokedex').addEventListener('click', () => {window.location.href = 'Home.html'})
+import {RunRegioesHTML} from "../Infos/Regioes.js";
 
-document.querySelector('.Pokedex-Interativa').addEventListener('click', () => {window.location.href = 'Pokedex.html'})
+RunRegioesHTML()
 
-document.querySelector('.Gerações').addEventListener('click', () => {window.location.href = 'Gerações.html'})
+document.querySelector('.Pokemons-Div').addEventListener('click', () => {window.location.href = 'Detalhes.html'})
+

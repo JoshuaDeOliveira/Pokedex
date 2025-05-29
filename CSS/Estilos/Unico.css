@@ -5,7 +5,7 @@ main{
   margin-right: auto;
   margin-bottom: 52px;
   max-width: 1224px;
-  background-color: #FAD343;
+  background-color: var(--Eletrico);;
 }
 
 .Titulo{
@@ -15,6 +15,13 @@ main{
   align-items: center;
   justify-content: center;
   font-weight: bold;
+}
+
+.Titulos{
+  margin: 20px 0px;
+  font-family: var(--TItuloAlternativo);
+  text-align: center;
+  font-size: 20px;
 }
 
 .btn{
@@ -53,8 +60,19 @@ main{
 .Pokeball-Ani{
   z-index: 1;
   bottom: 5px;
-  height: 160px;
+  height: 170px;
   position: absolute;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+
+  from{
+    transform: rotate(0deg);
+  }
 }
 
 .Top{
@@ -83,9 +101,19 @@ main{
 }
 
 .Guias{
+  display: flex;
+  justify-content: center;
   cursor: pointer;
   font-size: 20px;
-  padding: 10px;
+  padding: 15px 4px;
+  width: 100px;
+  height: 45px;
+  transition: font-size 0.5s, font-weight 0.5s;
+}
+
+.Guias:hover{
+  font-size: 23px;
+  font-weight: bolder;
 }
 
 .Especie-Pokemon{
@@ -130,7 +158,7 @@ main{
   align-items: center;
   padding: 6px;
   border-radius: 15px;
-  background-color: #F2D94E;
+  background-color: var(--Eletrico);
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.616);
 }
 
@@ -170,6 +198,10 @@ main{
 
 /*Informações Status*/
 
+.Status{
+  margin-bottom: 20px;
+}
+
 .Stat{
   display: flex;
   margin: 15px 0px;
@@ -184,4 +216,109 @@ main{
 
 .Stat > meter{
   width: 60%;
+  height: 22px;
+}
+
+/*Para Opera, Safari e Chrome*/
+meter::-webkit-meter-optimum-value {
+  background: rgb(59, 143, 59);
+  border-radius: 20px;
+}
+
+meter::-webkit-meter-suboptimum-value {
+  background: rgb(255, 199, 94);
+  border-radius: 20px;
+}
+
+meter::-webkit-meter-even-less-good-value {
+  background: rgb(255, 63, 63);
+  border-radius: 20px;
+}
+
+/* Para Firefox */
+meter:-moz-meter-optimum::-moz-meter-bar {
+  background: rgb(34, 129, 34);
+  border-radius: 20px;
+}
+
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: rgb(255, 184, 51);
+  border-radius: 20px;
+}
+
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: rgb(253, 43, 43);
+  border-radius: 20px;
+}
+
+.Type{
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: 4px;
+  border-radius: 20px;
+  margin: 8px 6px;
+  background-color: var(--Eletrico);
+}
+
+.Types{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Tipos-Detalhes{
+  display: flex;
+}
+
+.Titulos-Type{
+  font-size: 24px;
+}
+
+.Type > img{
+  height: 36px;
+}
+
+/*Informações sobre a Aba de Evoluções*/
+
+.Evolution-Tree{
+  overflow: scroll;
+  display: grid;
+  gap: 20px;
+  padding: 30px;
+  text-align: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.Aba-Evolucion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Nomes-Pokemons{
+  font-family: var(--Nomes);
+  font-size: 30px;
+}
+
+.Evolution-Tree::-webkit-scrollbar {
+  display: none;
+}
+.Evolution-Tree {
+  -ms-overflow-style: none;  /* IE e Edge antigos */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.Alternative{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.Sprite-Pokemon{
+  height: 250px;
 }

@@ -1,0 +1,93 @@
+.Grid-Pokemons{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/*Div Pokemon*/
+
+.Img-Poke{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Pokemons-Div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--Eletrico);
+  margin: 10px;
+  margin-left: 0px;
+  max-width: 180px;
+  width: 100%;
+  max-height: 300px;
+  height: 100%;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Sprite-Pokemon{
+  position: relative;
+  z-index: 2;
+  width: 150px;
+}
+
+.Pokeball-Ani{
+  opacity: 0.5;
+  z-index: 1;
+  height: 120px;
+  position: absolute;
+  animation: rotate 2s linear infinite;
+}
+
+.ID-Poke{
+  border-radius: 10px;
+  background-color: rgb(177, 175, 175);
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.ID {
+  font-size: 18px;
+}
+
+.NomeP{
+  font-family: var(--Nomes);
+  font-size: 30px;
+}
+
+.Types-Poke{
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.349);
+  margin: 10px;
+  background-color: var(--Eletrico);
+}
+
+.TypeP{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border-radius: 20px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.TypeP > img{
+  height: 24px;
+}
+
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+
+  from{
+    transform: rotate(0deg);
+  }
+}
+
+

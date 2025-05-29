@@ -53,6 +53,7 @@ nav{
   justify-content: center;
   color: white;
   font-weight: bolder;
+  text-decoration: none;
   cursor: pointer;
   transition: background-color 0.4s;
 }

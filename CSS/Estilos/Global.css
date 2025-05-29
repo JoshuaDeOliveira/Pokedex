@@ -7,6 +7,11 @@
   src: url('../Fontes/Pocket-Monk.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'Titulos';
+  src: url('../Fontes/moltors.ttf') format('truetype');
+}
+
 *{
   font-family: var(--Titulo);
   font-size: 12pt;
@@ -15,7 +20,12 @@
   box-sizing: border-box;
 }
 
-:root{  /*Variaveis*/
+:root{  /*Variaveis Fontes*/
   --Titulo: "Fira Sans", sans-serif;
+  --TItuloAlternativo: "Titulos";
   --Nomes: "Pokemon"
+}
+
+:root{ /*Cores das Tipagens*/
+  --Eletrico: #FAD343
 }

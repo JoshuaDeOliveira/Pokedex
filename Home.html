@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="./CSS/Imagens/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="CSS/Estilos/Global.css"> <!--CSS para a globalização dos Estilos-->
   <link rel="stylesheet" href="CSS/Estilos/Header.css"> <!--CSS para o Header-->
-  <link rel="stylesheet" href="CSS/Estilos/Home.css"> <!--Estilos de -->
+  <link rel="stylesheet" href="CSS/Estilos/Home.css"> <!--Estilos da Web Central -->
+  <link rel="stylesheet" href="CSS/Estilos/PokeDiv/Poke.css"> <!--Estilo de PokeDiv-->
 </head>
 <body>
   <header>
@@ -30,16 +31,22 @@
   </header>
   <nav class="Grid-Menu">
     <div class="Data-Menu National-Pokedex">
-      <img src="./CSS/Imagens/Map.png" alt="">
-      <p>National Pokedex</p>
+      <a href="Home.html" class="Data-Menu">
+        <img src="./CSS/Imagens/Map.png" alt="">
+        <p>National Pokedex</p>
+      </a>
     </div>
     <div class="Data-Menu Pokedex-Interativa">
-      <img src="./CSS/Imagens/pokeball.png" alt="">
-      <p>Pokedex Interativa</p>
+      <a href="Pokedex.html" class="Data-Menu">
+        <img src="./CSS/Imagens/pokeball.png" alt="">
+        <p>Pokedex Interativa</p>
+      </a>
     </div>
     <div class="Data-Menu Gerações">
-      <img src="./CSS/Imagens/Egg.png" alt="">
-      <p>Gerações</p>
+      <a href="Gerações.html" class="Data-Menu">
+        <img src="./CSS/Imagens/Egg.png" alt="">
+        <p>Gerações</p>
+      </a>
     </div>
     <div class="Pesquisa-Div">
       <input type="text" class="Pesquisar" placeholder="Search">
@@ -52,44 +59,44 @@
     <div class="Titulo">Lista de Pokemons</div>
     <ul class="Lista-Regioes">
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/kanto.svg" alt="Kanto">
+        <a href="#Kanto"><img src="./CSS/Imagens/Icones Regionais/kanto.svg" alt="Kanto"></a>
         <span>Kanto</span>
       </li>
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/johto.svg" alt="">
+        <a href="#Johto"><img src="./CSS/Imagens/Icones Regionais/johto.svg" alt=""></a>
         <span>Johto</span>
       </li>
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/hoenn.svg" alt="">
+        <a href="#Hoenn"><img src="./CSS/Imagens/Icones Regionais/hoenn.svg" alt=""></a>
         <span>Hoenn</span>
       </li>
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/sinnoh.svg" alt="">
+        <a href="#Sinnoh"><img src="./CSS/Imagens/Icones Regionais/sinnoh.svg" alt=""></a>
         <span>Sinnoh</span>
       </li>
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/unova.svg" alt="">
-        Unova
+        <a href="#Unova"><img src="./CSS/Imagens/Icones Regionais/unova.svg" alt=""></a>
+        <span>Unova</span>
       </li>
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/kalos.svg" alt="">
-        Kalos
+        <a href="#Kalos"><img src="./CSS/Imagens/Icones Regionais/kalos.svg" alt=""></a>
+        <span>Kalos</span>
       </li>
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/alola.svg" alt="">
-        Alola
+        <a href="#Alola"><img src="./CSS/Imagens/Icones Regionais/alola.svg" alt=""></a>
+        <span>Alola</span>
       </li>
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/galar.svg" alt="">
-        Galar
+        <a href="#Galar"><img src="./CSS/Imagens/Icones Regionais/galar.svg" alt=""></a>
+        <span>Galar</span>
       </li>
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/paldea.svg" alt="">
-        Paldea
+        <a href="#Paldea"><img src="./CSS/Imagens/Icones Regionais/paldea.svg" alt=""></a>
+        <span>Paldea</span>
       </li>
       <li class="Regioes">
-        <img src="./CSS/Imagens/Icones Regionais/hisui.svg" alt="">
-        Hisui
+        <a href="#Hisui"><img src="./CSS/Imagens/Icones Regionais/hisui.svg" alt=""></a>
+        <span>Hisui</span>
       </li>
     </ul>
     <div class="Explicação">
@@ -98,54 +105,74 @@
     </div>
     <div class="Pokemons">
       <hr class="NÃO-TOQUE">
-      <div class="Regional">
+      <div class="Regional" id="Kanto">
         <h1 class="Nomes-Regionais">Kanto</h1>
-        <div class="Grid-Pokemons-Kanto"></div>
+        <div class="Grid-Pokemons Kanto"> <!--DIV GRID POKEMONS-->
+          <!--DIV DE POKEMONS
+          <div class="Pokemons-Div">
+            <div class="Img-Poke">
+              <img class="Sprite-Pokemon" src="./CSS/Imagens/Sprites-Testes/26.png" alt="">
+              <img class="Pokeball-Ani" src="./CSS/Imagens/pokeball.png" alt="">
+            </div>
+            <div class="ID-Poke">
+              <p class="ID">#026</p>
+            </div>
+            <div class="Nome-Poke">
+              <h2 class="NomeP">Raichu</h2>
+            </div>
+            <div class="Types-Poke">
+              <div class="TypeP">
+                <img src="./CSS/Imagens/Types/electric.svg" alt="">
+              </div>
+            </div>
+          </div>
+          -->
+        </div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Regional">
+      <div class="Regional" id="Johto">
         <h1 class="Nomes-Regionais">Johto</h1>
-        <div class="Grid-Pokemons-Johto"></div>
+        <div class="Grid-Pokemons Johto"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Regional">
+      <div class="Regional" id="Hoenn">
         <h1 class="Nomes-Regionais">Hoenn</h1>
-        <div class="Grid-Pokemons-Hoenn"></div>
+        <div class="Grid-Pokemons Hoenn"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Regional">
+      <div class="Regional" id="Sinnoh">
         <h1 class="Nomes-Regionais">Sinnoh</h1>
-        <div class="Grid-Pokemons-Sinnoh"></div>
+        <div class="Grid-Pokemons Sinnoh"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Regional">
+      <div class="Regional" id="Unova">
         <h1 class="Nomes-Regionais">Unova</h1>
-        <div class="Grid-Pokemons-Unova"></div>
+        <div class="Grid-Pokemons Unova"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Regional">
+      <div class="Regional" id="Kalos">
         <h1 class="Nomes-Regionais">Kalos</h1>
-        <div class="Grid-Pokemons-Kalos"></div>
+        <div class="Grid-Pokemons Kalos"></div>
       </div>
-      <hr class="NÃO-TOQUE">
+      <hr class="NÃO-TOQUE" id="Alola">
       <div class="Regional">
         <h1 class="Nomes-Regionais">Alola</h1>
-        <div class="Grid-Pokemons-Alola"></div>
+        <div class="Grid-Pokemons Alola"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Regional">
+      <div class="Regional" id="Galar">
         <h1 class="Nomes-Regionais">Galar</h1>
-        <div class="Grid-Pokemons-Galar"></div>
+        <div class="Grid-Pokemons Galar"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Regional">
+      <div class="Regional" id="Paldea">
         <h1 class="Nomes-Regionais">Paldea</h1>
-        <div class="Grid-Pokemons-Paldea"></div>
+        <div class="Grid-Pokemons Paldea"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Regional">
+      <div class="Regional" id="Hisui">
         <h1 class="Nomes-Regionais">Hisui</h1>
-        <div class="Grid-Pokemons-Hisui"></div>
+        <div class="Grid-Pokemons Hisui"></div>
       </div>
       <hr class="NÃO-TOQUE">
     </div>

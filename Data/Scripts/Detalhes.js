@@ -1,83 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projeto Pokedex</title>
-  <link rel="shortcut icon" href="./CSS/Imagens/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="CSS/Estilos/Global.css"> <!--CSS para a globalização dos Estilos-->
-  <link rel="stylesheet" href="CSS/Estilos/Header.css"> <!--CSS para o Header-->
-  <link rel="stylesheet" href="CSS/Estilos/Unico.css">
-</head>
-<body>
-  <header>
-    <div class="Grid-header">
-      <picture>
-          <source type="image/avif" media="(min-width: 900px)" width="1140" height="100"
-            srcset="https://img.pokemondb.net/design/avif/header-lg.avif">
-          <source type="image/avif" media="(min-width: 620px)" width="807" height="100"
-            srcset="https://img.pokemondb.net/design/avif/header-md.avif, https://img.pokemondb.net/design/avif/header-md-2x.avif 2x">
-          <source type="image/avif" width="367" height="100"
-            srcset="https://img.pokemondb.net/design/avif/header-sm.avif, https://img.pokemondb.net/design/avif/header-sm-2x.avif 2x">
-          <source type="image/png" media="(min-width: 900px)" width="1140" height="100"
-            srcset="https://img.pokemondb.net/design/header-lg.png">
-          <source type="image/png" media="(min-width: 620px)" width="807" height="100"
-            srcset="https://img.pokemondb.net/design/header-md.png, https://img.pokemondb.net/design/header-md-2x.png 2x">
-          <img src="https://img.pokemondb.net/design/header-sm.png" alt="Pokemon Database logo, with Scizor"
-            srcset="https://img.pokemondb.net/design/header-sm-2x.png 2x" fetchpriority="high">
-        </picture>
-    </div>
-  </header>
-  <nav class="Grid-Menu">
-    <div class="Data-Menu National-Pokedex">
-      <a href="Home.html" class="Data-Menu">
-        <img src="./CSS/Imagens/Map.png" alt="">
-        <p>National Pokedex</p>
-      </a>
-    </div>
-    <div class="Data-Menu Pokedex-Interativa">
-      <a href="Pokedex.html" class="Data-Menu">
-        <img src="./CSS/Imagens/pokeball.png" alt="">
-        <p>Pokedex Interativa</p>
-      </a>
-    </div>
-    <div class="Data-Menu Gerações">
-      <a href="Gerações.html" class="Data-Menu">
-        <img src="./CSS/Imagens/Egg.png" alt="">
-        <p>Gerações</p>
-      </a>
-    </div>
-    <div class="Pesquisa-Div">
-      <input type="text" class="Pesquisar" placeholder="Search">
-      <button class="Enviar">
-        <img src="./CSS/Imagens/search-icon.png" alt="">
-      </button>
-    </div>
-  </nav>
-  <main>
-    <div class="Header-Poke">
-      <div class="btn">
-        <button onclick="window.location.href='Home.html'">
-          <img src="./CSS/Imagens/botao-de-seta-para-a-esquerda-do-teclado.png" alt="">
-        </button>
-      </div>
-      <div class="Titulo">
-        <span class="Nomes-Pokemon">ピカチュ</span>
-        <span class="Nomes-Pokemon">Pikachu</span>
-      </div>
-      <div class="Top">
-        <img class="Sprite_Pokemon" src="./CSS/Imagens/Detalhes/25.svg" alt="">
-        <img class="Pokeball-Ani" src="./CSS/Imagens/pokeball.png" alt="">
-      </div>
-    </div>
-    <div class="Main-Info">
-      <div class="Selecionadores">
-        <span class="Guias Button-Overview">Overview</span>
-        <span class="Guias Button-Stats">Stats</span>
-        <span class="Guias Button-Evolution">Evolution</span>
-      </div>
-      <div class="Main-Pokedex">
-        <div class="Pokedex-Infos">
+let HTML;
+let InserirHTML = document.querySelector('.Main-Pokedex')
+
+document.querySelector('.Button-Overview').addEventListener('click', () => {
+  InserirHTML.innerHTML = ''
+  HTML = `<div class="Pokedex-Infos">
           <div class="Pokedex-Descrição">
             <h2 class="Especie-Pokemon">MOUSE POKEMON</h2>
             <p class="Descrição">When several of these POKéMON gather, their electricity could build and cause lightning storms.</p>
@@ -110,9 +36,14 @@
             <p class="Infos">Growth Rate: medium</p>
             <p class="Infos">Egg Groups: Ground, Fairy</p>
           </div>
-        </div>
-        <!-- ABA STATUS. ESSA ABA FUTURAMENTE SERÁ GERADA COM JAVASCRIPT
-        <div class="Status-Infos">
+        </div>`
+  InserirHTML.innerHTML = HTML
+})
+
+document.querySelector('.Button-Stats').addEventListener('click', () => {
+  InserirHTML.innerHTML = ''
+  HTML = `
+  <div class="Status-Infos">
           <div class="Status">
             <div class="Stat">
               <div class="Numb">
@@ -178,10 +109,13 @@
               </div>
             </div>
           </div>
-        </div>
-        -->
-        <!-- ABA EVOLUTION. ESSA ABA FUTURAMENTE SERÁ GERADA COM JAVASCRIPT
-        <div class="Evolution-Info">
+        </div>`
+  InserirHTML.innerHTML = HTML
+})
+
+document.querySelector('.Button-Evolution').addEventListener('click', () => {
+  InserirHTML.innerHTML = ''
+  HTML = `<div class="Evolution-Info">
           <h1 class="Titulos">Arvore de Evolução Principal</h1>
           <div class="Evolution-Tree">
             <div class="Aba-Evolucion">
@@ -204,16 +138,6 @@
               <img class="Sprite-Pokemon" src="./CSS/Imagens/Sprites-Testes/10080.png" alt="">
             </div>
           </div>
-        </div>
-        -->
-      </div>
-    </div>
-  </main>
-  <footer>
-    <span>All content & design © Pokémon Database, 2008-2025. Pokémon images & names © 1995-2025 Nintendo/Game Freak.</span>
-    <span>Esse site é apenas uma paradia criada para estudos por Joshua Oliveira</span>
-  </footer>
-
-  <script type="module" src="./Data/Scripts/Detalhes.js"></script>
-</body>
-</html>
+        </div>`
+  InserirHTML.innerHTML = HTML
+})

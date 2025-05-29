@@ -1,0 +1,1 @@
+document.querySelector('.Pokemons-Div').addEventListener('click', () => {window.location.href = 'Detalhes.html'})

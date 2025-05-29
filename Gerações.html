@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="./CSS/Imagens/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="CSS/Estilos/Global.css"> <!--CSS para a globalização dos Estilos-->
   <link rel="stylesheet" href="CSS/Estilos/Header.css"> <!--CSS para o Header-->
-  <link rel="stylesheet" href="CSS/Estilos/Geração.css"> <!--Estilos de -->
+  <link rel="stylesheet" href="CSS/Estilos/Geração.css"> <!--Estilos de Web Central-->
+  <link rel="stylesheet" href="CSS/Estilos/PokeDiv/Poke.css"> <!--Estilo de PokeDiv-->
 </head>
 <body>
   <header>
@@ -30,16 +31,22 @@
   </header>
   <nav class="Grid-Menu">
     <div class="Data-Menu National-Pokedex">
-      <img src="./CSS/Imagens/Map.png" alt="">
-      <p>National Pokedex</p>
+      <a href="Home.html" class="Data-Menu">
+        <img src="./CSS/Imagens/Map.png" alt="">
+        <p>National Pokedex</p>
+      </a>
     </div>
     <div class="Data-Menu Pokedex-Interativa">
-      <img src="./CSS/Imagens/pokeball.png" alt="">
-      <p>Pokedex Interativa</p>
+      <a href="Pokedex.html" class="Data-Menu">
+        <img src="./CSS/Imagens/pokeball.png" alt="">
+        <p>Pokedex Interativa</p>
+      </a>
     </div>
     <div class="Data-Menu Gerações">
-      <img src="./CSS/Imagens/Egg.png" alt="">
-      <p>Gerações</p>
+      <a href="Gerações.html" class="Data-Menu">
+        <img src="./CSS/Imagens/Egg.png" alt="">
+        <p>Gerações</p>
+      </a>
     </div>
     <div class="Pesquisa-Div">
       <input type="text" class="Pesquisar" placeholder="Search">
@@ -55,64 +62,82 @@
     </div>
     <div class="Lista de Gerações">
       <ul class="Gerações-Escolhidas">
-        <li class="Geração-Guia">1ºGen</li>
-        <li class="Geração-Guia">2ºGen</li>
-        <li class="Geração-Guia">3ºGen</li>
-        <li class="Geração-Guia">4ºGen</li>
-        <li class="Geração-Guia">5ºGen</li>
-        <li class="Geração-Guia">6ºGen</li>
-        <li class="Geração-Guia">7ºGen</li>
-        <li class="Geração-Guia">8ºGen</li>
-        <li class="Geração-Guia">9ºGen</li>
+        <li class="Geração-Guia"><a href="#1-Gen">1ºGen</a></li>
+        <li class="Geração-Guia"><a href="#2-Gen">2ºGen</a></li>
+        <li class="Geração-Guia"><a href="#3-Gen">3ºGen</a></li>
+        <li class="Geração-Guia"><a href="#4-Gen">4ºGen</a></li>
+        <li class="Geração-Guia"><a href="#5-Gen">5ºGen</a></li>
+        <li class="Geração-Guia"><a href="#6-Gen">6ºGen</a></li>
+        <li class="Geração-Guia"><a href="#7-Gen">7ºGen</a></li>
+        <li class="Geração-Guia"><a href="#8-Gen">8ºGen</a></li>
+        <li class="Geração-Guia"><a href="#9-Gen">9ºGen</a></li>
       </ul>
       <div class="Explicação">
         <p>Esta lista divide os pokemons pela geração que eles foram introduzidos ao universo Pokemon.</p>
         <p>Os Pokemons e suas evoluções foram introduzidos calmamente entre cada "Area" que nos chamamos de "Geração". Seja atravez por jogos, animes, mangas e quaisquer midia que introduza mais do Universo</p>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Gerecional">
+      <div class="Gerecional" id="1-Gen">
         <h1 class="Nomes-Regionais">1º Geração</h1>
-        <div class="Grid-Gerecionais-1"></div>
+        <div class="Grid-Pokemons Gerecionais-1"> <!--DIV GRID POKEMONS-->
+          <div class="Pokemons-Div">
+            <div class="Img-Poke">
+              <img class="Sprite-Pokemon" src="./CSS/Imagens/Sprites-Testes/26.png" alt="">
+              <img class="Pokeball-Ani" src="./CSS/Imagens/pokeball.png" alt="">
+            </div>
+            <div class="ID-Poke">
+              <p class="ID">#026</p>
+            </div>
+            <div class="Nome-Poke">
+              <h2 class="NomeP">Raichu</h2>
+            </div>
+            <div class="Types-Poke">
+              <div class="TypeP">
+                <img src="./CSS/Imagens/Types/electric.svg" alt="">
+              </div>
+            </div>
+          </div> <!--DIV DE POKEMONS-->
+        </div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Gerecional">
+      <div class="Gerecional" id="2-Gen">
         <h1 class="Nomes-Regionais">2º Geração</h1>
-        <div class="Grid-Gerecionais-2"></div>
+        <div class="Grid-Pokemons Gerecionais-2"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Gerecional">
+      <div class="Gerecional" id="3-Gen">
         <h1 class="Nomes-Regionais">3º Geração</h1>
-        <div class="Grid-Gerecionais-3"></div>
+        <div class="Grid-Pokemons Gerecionais-3"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Gerecional">
+      <div class="Gerecional" id="4-Gen">
         <h1 class="Nomes-Regionais">4º Geração</h1>
-        <div class="Grid-Gerecionais-4"></div>
+        <div class="Grid-Pokemons Gerecionais-4"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Gerecional">
+      <div class="Gerecional" id="5-Gen">
         <h1 class="Nomes-Regionais">5º Geração</h1>
-        <div class="Grid-Gerecionais-5"></div>
+        <div class="Grid-Pokemons Gerecionais-5"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Gerecional">
+      <div class="Gerecional" id="6-Gen">
         <h1 class="Nomes-Regionais">6º Geração</h1>
-        <div class="Grid-Gerecionais-6"></div>
+        <div class="Grid-Pokemons Gerecionais-6"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Gerecional">
+      <div class="Gerecional" id="7-Gen">
         <h1 class="Nomes-Regionais">7º Geração</h1>
-        <div class="Grid-Gerecionais-7"></div>
+        <div class="Grid-Pokemons Gerecionais-7"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Gerecional">
+      <div class="Gerecional" id="8-Gen">
         <h1 class="Nomes-Regionais">8º Geração</h1>
-        <div class="Grid-Gerecionais-8"></div>
+        <div class="Grid-Pokemons Gerecionais-8"></div>
       </div>
       <hr class="NÃO-TOQUE">
-      <div class="Gerecional">
+      <div class="Gerecional" id="9-Gen">
         <h1 class="Nomes-Regionais">9º Geração</h1>
-        <div class="Grid-Gerecionais-9"></div>
+        <div class="Grid-Pokemons Gerecionais-9"></div>
       </div>
       <hr class="NÃO-TOQUE">
     </div>
@@ -122,6 +147,6 @@
     <span>Esse site é apenas uma paradia criada para estudos por Joshua Oliveira</span>
   </footer>
 
-  <script type="module" src="./Data/Scripts/Home.js"></script>
+  <script type="module" src="./Data/Scripts/Gerações.js"></script>
 </body>
 </html>
