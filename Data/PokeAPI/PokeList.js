@@ -10,9 +10,9 @@ class ListaRegional{
     this.Nome = Data.name
     this.Img = Data.sprites.front_default
     this.Tipos = Data.types
-    this.id = + Data.id 
+    this.id = Data.id 
   }
 }
 
-export const Kanto = Data.map(pokemon => new ListaRegional(pokemon))
+export const PrimeiraGeração = Data.map(pokemon => new ListaRegional(pokemon))
 

@@ -27,5 +27,22 @@
 }
 
 :root{ /*Cores das Tipagens*/
-  --Eletrico: #FAD343
+  --Eletrico: rgb(250, 211, 67);
+  --Fogo: rgb(239, 45, 45);
+  --Agua: rgb(27, 89, 255);
+  --Voador: rgb(67, 193, 250);
+  --Grama: rgb(24, 191, 35);
+  --Inseto: rgb(71, 255, 83);
+  --Normal: rgb(185, 182, 182);
+  --Veneno: rgb(207, 13, 207);
+  --Fantasma: rgb(116, 20, 116);
+  --Fada: rgb(243, 145, 162);
+  --Terra: rgb(110, 55, 55);
+  --Pedra: rgb(78, 52, 52);
+  --Dark: rgb(34, 34, 34);
+  --Gelo: rgb(116, 116, 201);
+  --Luta: rgb(212, 161, 65);
+  --Ferro: rgb(211, 211, 211);
+  --Dragão: rgb(93, 123, 255);
+  --Psiquico: rgb(93, 56, 128);
 }

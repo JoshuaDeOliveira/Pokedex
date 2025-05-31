@@ -1,15 +1,15 @@
-import {Kanto} from "../PokeAPI/PokeList.js";
+import {PrimeiraGeração} from "../PokeAPI/PokeList.js";
 import {Formatar} from "../Utils/formatar.js";
 
 let PokeDiv = {
-  HTMLKanto: document.querySelector('.Kanto')
+  HTML1: document.querySelector('.Gerecionais-1')
 }
 
-let InserirKanto;
+let Inserir1;
 
-export function RunRegioesHTML(){
-  Kanto.forEach(pokemon => {
-    InserirKanto = `<div class="Pokemons-Div">
+export function RunGeraçõesHTML(){
+  PrimeiraGeração.forEach(pokemon => {
+    Inserir1 = `<div class="Pokemons-Div">
             <div class="Img-Poke">
               <img class="Sprite-Pokemon" src="${pokemon.Img}" alt="">
               <img class="Pokeball-Ani" src="./CSS/Imagens/pokeball.png" alt="">
@@ -22,9 +22,19 @@ export function RunRegioesHTML(){
             </div>
             <div class="Types-Poke">
               <div class="TypeP">
-                <img src="../../CSS/Imagens/IconTypes/120px-Battrio_Dark_type.png" alt="">
               </div>
             </div>`
-    PokeDiv.HTMLKanto.innerHTML += InserirKanto
+    PokeDiv.HTML1.innerHTML += Inserir1
   })
+}
+
+function Tipos(Type){
+  switch (key) {
+    case value:
+      
+      break;
+  
+    default:
+      break;
+  }
 }

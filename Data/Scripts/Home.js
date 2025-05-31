@@ -2,5 +2,7 @@ import {RunRegioesHTML} from "../Infos/Regioes.js";
 
 RunRegioesHTML()
 
-document.querySelector('.Pokemons-Div').addEventListener('click', () => {window.location.href = 'Detalhes.html'})
+document.querySelectorAll('.Pokemons-Div').forEach(button => {
+  button.addEventListener('click', () => {window.location.href = 'Detalhes.html'})
+})
 
