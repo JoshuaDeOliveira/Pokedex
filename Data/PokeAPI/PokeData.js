@@ -4,18 +4,24 @@ export const PokeData = async (ID) => {
     const Data = await response.json()
 
     const Li = await Promise.all(
-      Data.results.map(async (pokemon) => {
-        const Unico = await fetch(pokemon.url);
+      Data.pokemon_species.map(async (pokemon) => {
+        const Unico = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`);
         return await Unico.json()
       })
     ); 
+    Li.sort((a, b) => a.id - b.id)
     return Li
   } catch (error) {
     console.log(`Deu erro na pega das informações ${error}`)
   }
 }
 
-export const Data = await PokeData('pokemon?limit=151&offset=0')
+/*Teste de Funcionalidade. IMPLEMENTAR LOCALSTORAGE + MELHOR FUNCIONALIDADE DE BUSCA DE GERAÇÃO*/
+
+export const PokemonsData = {
+  Gen1Data: await PokeData('generation/1/'),
+  Gen2Data: await PokeData('generation/2/'),
+}
 
 
 

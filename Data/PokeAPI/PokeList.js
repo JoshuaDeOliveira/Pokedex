@@ -1,4 +1,4 @@
-import {Data} from "./PokeData.js"
+import {PokemonsData} from "./PokeData.js"
 
 class ListaRegional{
   Nome;
@@ -14,5 +14,9 @@ class ListaRegional{
   }
 }
 
-export const PrimeiraGeração = Data.map(pokemon => new ListaRegional(pokemon))
+export const Gerações = {
+  PrimeiraGeração: PokemonsData.Gen1Data.map(pokemon => new ListaRegional(pokemon)),
+  SegundaGeração: PokemonsData.Gen2Data.map(pokemon => new ListaRegional(pokemon)),
+}
+
 
