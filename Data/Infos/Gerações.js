@@ -1,10 +1,12 @@
-import {Gerações} from "../PokeAPI/PokeList.js";
+import '../PokeAPI/PokeList.js';
 import {Formatar} from "../Utils/formatar.js";
+import {PegarData} from "../Utils/Pegar.js";
 
 let PokeDiv = {
   HTMLGeracional: document.querySelector('.Lista-Gerecional')
 }
 
+let Gen = PegarData('Gens')
 let InserirHTML;
 let PokemonDiv;
 
@@ -14,53 +16,61 @@ export function RunGeraçõesHTML(){
     <div class="Gerecional" id="1-Gen">
       <h1 class="Nomes-Regionais">1º Geração</h1>
       <div class="Grid-Pokemons Gerecionais-1">
-        ${Criação(Gerações.PrimeiraGeração)}
+        ${Criação(Gen.PrimeiraGeração)}
       </div>
     </div>
     <hr class="NÃO-TOQUE">
     <div class="Gerecional" id="2-Gen">
       <h1 class="Nomes-Regionais">2º Geração</h1>
       <div class="Grid-Pokemons Gerecionais-2">
-       ${Criação(Gerações.SegundaGeração)}</div>
+       ${Criação(Gen.SegundaGeração)}</div>
     </div>
     <hr class="NÃO-TOQUE">
     <div class="Gerecional" id="3-Gen">
       <h1 class="Nomes-Regionais">3º Geração</h1>
-      <div class="Grid-Pokemons Gerecionais-3"></div>
+      <div class="Grid-Pokemons Gerecionais-3">
+       ${Criação(Gen.TerceiraGeração)}</div>
     </div>
     <hr class="NÃO-TOQUE">
     <div class="Gerecional" id="4-Gen">
       <h1 class="Nomes-Regionais">4º Geração</h1>
-      <div class="Grid-Pokemons Gerecionais-4"></div>
+      <div class="Grid-Pokemons Gerecionais-4">
+       ${Criação(Gen.QuartaGeração)}</div>
     </div>
     <hr class="NÃO-TOQUE">
     <div class="Gerecional" id="5-Gen">
       <h1 class="Nomes-Regionais">5º Geração</h1>
-      <div class="Grid-Pokemons Gerecionais-5"></div>
+      <div class="Grid-Pokemons Gerecionais-5">
+      ${Criação(Gen.QuintaGeração)}</div>
     </div>
     <hr class="NÃO-TOQUE">
     <div class="Gerecional" id="6-Gen">
       <h1 class="Nomes-Regionais">6º Geração</h1>
-      <div class="Grid-Pokemons Gerecionais-6"></div>
+      <div class="Grid-Pokemons Gerecionais-6">
+      ${Criação(Gen.SextaGeração)}</div>
     </div>
     <hr class="NÃO-TOQUE">
     <div class="Gerecional" id="7-Gen">
       <h1 class="Nomes-Regionais">7º Geração</h1>
-      <div class="Grid-Pokemons Gerecionais-7"></div>
+      <div class="Grid-Pokemons Gerecionais-7">
+      ${Criação(Gen.SetimaGeração)}</div>
     </div>
     <hr class="NÃO-TOQUE">
     <div class="Gerecional" id="8-Gen">
       <h1 class="Nomes-Regionais">8º Geração</h1>
-      <div class="Grid-Pokemons Gerecionais-8">}</div>
+      <div class="Grid-Pokemons Gerecionais-8">
+      ${Criação(Gen.OitavaGeração)}</div>
     </div>
     <hr class="NÃO-TOQUE">
     <div class="Gerecional" id="9-Gen">
       <h1 class="Nomes-Regionais">9º Geração</h1>
-      <div class="Grid-Pokemons Gerecionais-9"></div>
+      <div class="Grid-Pokemons Gerecionais-9">
+      ${Criação(Gen.NonaGeração)}
+      </div>
     </div>
     <hr class="NÃO-TOQUE">`
   PokeDiv.HTMLGeracional.innerHTML = InserirHTML
-  Object.values(Gerações).forEach(Geração => {
+  Object.values(Gen).forEach(Geração => {
     Geração.forEach(pokemon => {
       pokemon.Tipos.forEach(tipo => {
       if (tipo.slot === 1) {

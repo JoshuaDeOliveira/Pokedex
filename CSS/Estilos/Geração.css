@@ -44,6 +44,10 @@ main{
   border-left: 1px solid #dbdbdb;
 }
 
+.Lista-Gerecional{
+  display: none;
+}
+
 .Geração-Guia > a{
   text-decoration: None;
   color: #276DC3;
@@ -66,4 +70,34 @@ main{
 
 .Nomes-Regionais{
   font-size: 18pt;
+  margin-bottom: 20px;
+}
+
+.skeleton-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.skeleton-title, .skeleton-img {
+  background: linear-gradient(-90deg, #eee 0%, #ddd 50%, #eee 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+.skeleton-title {
+  width: 14%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.skeleton-img {
+  width: 90%;
+  height: 300px;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
