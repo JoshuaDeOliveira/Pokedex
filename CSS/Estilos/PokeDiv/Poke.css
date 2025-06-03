@@ -6,6 +6,7 @@
 /*Div Pokemon*/
 
 .Img-Poke{
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,8 +44,10 @@
 }
 
 .ID-Poke{
+  text-shadow: 1px 1px white;
   border-radius: 10px;
   background-color: rgb(177, 175, 175);
+  border: 2px solid rgb(82, 1, 1);
   padding: 5px;
   margin-bottom: 10px;
 }

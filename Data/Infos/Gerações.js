@@ -1,7 +1,7 @@
 import '../PokeAPI/PokeList.js';
 import {Formatar} from "../Utils/formatar.js";
 import {PegarData} from "../Utils/Pegar.js";
-import {Tipos} from "../Utils/PokeUtils.js";
+import {PokeUtils} from "../Utils/PokeUtils.js";
 
 let PokeDiv = {
   HTMLGeracional: document.querySelector('.Lista-Gerecional')
@@ -98,7 +98,7 @@ function Criação(Geração){
         <h2 class="NomeP">${pokemon.Nome}</h2>
       </div>
       <div class="Types-Poke">
-        ${Tipos(pokemon.Tipos)}
+        ${PokeUtils.Tipos(pokemon.Tipos)}
       </div>
     </div>`
     })

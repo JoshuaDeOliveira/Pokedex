@@ -47,6 +47,11 @@
   cursor: pointer;
 }
 
+.Generos{
+  text-transform: capitalize;
+  font-size: 18px;
+}
+
 .Header-Poke{
   padding: 10px;
   padding-bottom: 0px;

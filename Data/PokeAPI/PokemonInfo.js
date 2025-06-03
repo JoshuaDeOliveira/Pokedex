@@ -12,7 +12,7 @@ class PokeInfos{
   Evoluções; /*ARVORE DE EVOLUÇÃO*/
   Variações; /*VARIAÇÕES DO POKEMON*/
 
-  constructor(PokemonData, PokeDataAdicional){
+  constructor(PokemonData, PokeDataAdicional){''
     this.Nomes = {
       Japones: PokeDataAdicional.names.find(u => u.language.name == 'ja').name || 'Desconhecido',
       Ingles: PokeDataAdicional.name

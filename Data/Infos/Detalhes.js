@@ -1,8 +1,8 @@
 import {BuscadorPoke} from "../PokeAPI/Pokemon.js";
 import {PokeInfo} from "../PokeAPI/PokemonInfo.js";
 import {Formatar} from "../Utils/formatar.js";
-import {CorrigirTexto, Converter, TotalStatus, GenderRate, Habilidades, Catch, MetricaFelicidade, Eggs} from "../Utils/PokeUtils.js";
-import {Tipos} from "../Utils/PokeUtils.js";
+import {PokeUtils} from "../Utils/PokeUtils.js";
+
 
 export function RunPokemonHTML(){
   addEventListener('DOMContentLoaded', () => {
@@ -67,12 +67,12 @@ function Botoes(Pokemon){
     BaseHTML(Pokemon)
   });
 
-  document.querySelector('.Button-Stats').addEventListener('click', () => {
-    StatusHTML(Pokemon)
+  document.querySelector('.Button-Stats').addEventListener('click', async () => {
+    await StatusHTML(Pokemon)
   });
 
-  document.querySelector('.Button-Evolution').addEventListener('click', () => {
-    EvolutionHTML(Pokemon)
+  document.querySelector('.Button-Evolution').addEventListener('click', async () => {
+    await EvolutionHTML(Pokemon)
   });
   }
 
@@ -83,40 +83,40 @@ function BaseHTML(Pokemon){
     <div class="Pokedex-Infos">
       <div class="Pokedex-Descrição">
         <h2 class="Especie-Pokemon">${Pokemon.Especie}</h2>
-        <p class="Descrição">${CorrigirTexto(Pokemon.Descrição)}</p>
+        <p class="Descrição">${PokeUtils.CorrigirTexto(Pokemon.Descrição)}</p>
       </div>
       <div class="Info-Corpo">
         <ul class="Lista-Corporal">
           <li class="Detalhes-Corporais">Height</li>
-          <li class="Tamanho Detalhes-Corporais">${Converter(Pokemon.Fisico.Altura)}m</li>
+          <li class="Tamanho Detalhes-Corporais">${PokeUtils.Converter(Pokemon.Fisico.Altura)}m</li>
         </ul>
         <ul class="Lista-Corporal">
           <li class="Detalhes-Corporais">Weight</li>
-          <li class="Peso Detalhes-Corporais">${Converter(Pokemon.Fisico.Peso)}kg</li>
+          <li class="Peso Detalhes-Corporais">${PokeUtils.Converter(Pokemon.Fisico.Peso)}kg</li>
         </ul>
       </div>
       <div class="Type-Pokemon">
         <div class="Div-Type">
-          ${Tipos(Pokemon.Tipos)}
+          ${PokeUtils.Tipos(Pokemon.Tipos)}
         </div>
       </div>
       <div class="Info-Dex">
         <p class="Infos">Id: <span class="ID">#${Formatar(Pokemon.Base.ID)}</span></p>
         <p class="Infos">Gender:
-          <span class="Masculino">${GenderRate(Pokemon.Base.Genero)}</span>
+          <span class="Generos">${PokeUtils.GenderRate(Pokemon.Base.Genero)}</span>
         </p>
-        <p class="Infos">Abilities: ${Habilidades(Pokemon.Habilidades)}</p>
-        <p class="Infos">Catch Rate: ${Pokemon.Base.Captura} (${Catch(Pokemon.Base.Captura)} chance)</p>
-        <p class="Infos">Base Friendship: ${Pokemon.Base.Felicidade} (${MetricaFelicidade(Pokemon.Base.Felicidade)})</p>
+        <p class="Infos">Abilities: ${PokeUtils.Habilidades(Pokemon.Habilidades)}</p>
+        <p class="Infos">Catch Rate: ${Pokemon.Base.Captura} (${PokeUtils.Catch(Pokemon.Base.Captura)} chance)</p>
+        <p class="Infos">Base Friendship: ${Pokemon.Base.Felicidade} (${PokeUtils.MetricaFelicidade(Pokemon.Base.Felicidade)})</p>
         <p class="Infos">Base Exp: ${Pokemon.Base.Xp}</p>
         <p class="Infos">Growth Rate: ${Pokemon.Base.Growth_Rate}</p>
-        <p class="Infos">Egg Groups: ${Eggs(Pokemon.EggGroup)}</p>
+        <p class="Infos">Egg Groups: ${PokeUtils.Eggs(Pokemon.EggGroup)}</p>
       </div>
     </div>`
   InserirHTML.innerHTML = HTML
 }
 
-function StatusHTML(Pokemon){
+async function StatusHTML(Pokemon){
   const InserirHTML = document.querySelector('.Main-Pokedex')
   InserirHTML.innerHTML = ''
   const HTML = `
@@ -167,30 +167,19 @@ function StatusHTML(Pokemon){
           <div class="Stat">
             <div class="Numb">
               <span>Total:</span>
-              <span>${TotalStatus(Pokemon.Status)}</span>
+              <span>${PokeUtils.TotalStatus(Pokemon.Status)}</span>
             </div>
-            <meter value="${TotalStatus(Pokemon.Status)}" min="0" max="1550" low="175" high="500" optimum="1550">70%</meter>
+            <meter value="${PokeUtils.TotalStatus(Pokemon.Status)}" min="0" max="1550" low="175" high="500" optimum="1550">70%</meter>
           </div>
         </div>
         <div class="Types">
-          <h2 class="Titulos-Type">Fraquezas</h2>
-          <div class="Tipos-Detalhes">
-            <div class="Type">
-              <img src="./CSS/Imagens/Types/electric.svg" alt="">
-            </div>
-          </div>
-          <h2 class="Titulos-Type">Vantagens</h2>
-          <div class="Tipos-Detalhes">
-            <div class="Type">
-              <img src="./CSS/Imagens/Types/electric.svg" alt="">
-            </div>
-          </div>
+          ${await Mecanica(Pokemon.Tipos)}
         </div>
       </div>`
   InserirHTML.innerHTML = HTML
 }
 
-function EvolutionHTML(Pokemon){
+async function EvolutionHTML(Pokemon){
   const InserirHTML = document.querySelector('.Main-Pokedex')
   InserirHTML.innerHTML = ''
   const HTML = `<div class="Evolution-Info">
@@ -218,4 +207,79 @@ function EvolutionHTML(Pokemon){
         </div>
       </div>`
   InserirHTML.innerHTML = HTML
+  await EvolutionTree(Pokemon.Evoluções)
+}
+
+async function EvolutionTree(Criaturas){
+  try{
+    let Primeiro = ''
+    let Segundo = ''
+    let Terceiro = ''
+    const response = await fetch(Criaturas)
+    const info = await response.json()
+    Primeiro = info.chain.species.name
+    info.chain.evolves_to.forEach(De => {
+      Segundo = De.species.name
+      De.evolves_to.forEach(D => {
+        Terceiro = D.species.name
+      })
+    })
+
+  } catch (error) {
+    console.log(`Deu esse erro ${error}`)
+  }
+}
+
+async function Mecanica(Tipos) {
+  try {
+    const htmlArray = await Promise.all(
+      Tipos.map(async tipo => {
+        try {
+          let HTMLFraquezas = ''
+          let HTMLVantagens = ''
+          const response = await fetch(tipo.type.url)
+          const info = await response.json()
+
+          const TypesInfos = info.damage_relations
+          TypesInfos.double_damage_from.forEach(tipo => {
+            HTMLFraquezas += `<div class="TypeP"><img src="../../CSS/Imagens/IconTypes/${tipo.name}.png" alt="Tipos"></div>`
+          })
+          TypesInfos.double_damage_to.forEach(tipo => {
+            HTMLVantagens += `<div class="TypeP"><img src="../../CSS/Imagens/IconTypes/${tipo.name}.png" alt="Tipos"></div>`
+          })
+          return {
+            Fraquezas: HTMLFraquezas,
+            Vantagens: HTMLVantagens
+          }
+        } catch (error) {
+          console.log(`Erro ao processar o tipo ${tipo.type.name}: ${error}`)
+          return ''
+        }
+      })
+    )
+    let HTMLF = ''
+    let HTMLV = ''
+
+    htmlArray.forEach(tipo => {
+      HTMLF += tipo.Fraquezas
+      HTMLV += tipo.Vantagens
+    })
+
+    return `<h2 class="Titulos-Type">Fraquezas</h2>
+          <div class="Tipos-Detalhes">
+            <div class="Type">
+              ${HTMLF}
+            </div>
+          </div>
+          <h2 class="Titulos-Type">Vantagens</h2>
+          <div class="Tipos-Detalhes">
+            <div class="Type">
+              ${HTMLV}
+            </div>
+          </div>`
+
+  } catch (error) {
+    console.log(`Erro geral nas Mecanias: ${error}`)
+    return ''
+  }
 }
