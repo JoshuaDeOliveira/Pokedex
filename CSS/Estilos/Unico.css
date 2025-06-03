@@ -1,4 +1,4 @@
-main{
+.Main{
   position: relative;
   margin-top: 30px;
   margin-left: auto;
@@ -15,6 +15,7 @@ main{
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  text-shadow: 1px 1px white;
 }
 
 .Titulos{
@@ -29,11 +30,16 @@ main{
   display: block;
 }
 
-.btn > button > img{
+.Back > img{
   height: 24px;
 }
 
-.btn > button{
+.Top{
+  height: 170px;
+  margin: 10px 0px;
+}
+
+.Back{
   background-color: white;
   width: 40px;
   height: 40px;
@@ -52,9 +58,21 @@ main{
   font-size: 50px;
 }
 
+.Descrição{
+  text-transform: capitalize;
+}
+
 .Sprite_Pokemon{
   z-index: 90;
-  bottom: 20px;
+  height: 200px;
+}
+
+.TypeP{
+  margin: 5px;
+}
+
+.TypeP > img{
+  height: 44px;
 }
 
 .Pokeball-Ani{
@@ -157,9 +175,6 @@ main{
   justify-content: center;
   align-items: center;
   padding: 6px;
-  border-radius: 15px;
-  background-color: var(--Eletrico);
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.616);
 }
 
 .Type-Icon{
@@ -169,6 +184,7 @@ main{
 .Infos{
   margin: 10px 0px;
   font-size: 18px;
+  text-transform: capitalize;
 }
 
 .ID{

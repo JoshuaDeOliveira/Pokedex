@@ -1,6 +1,7 @@
 import '../PokeAPI/PokeList.js';
 import {Formatar} from "../Utils/formatar.js";
 import {PegarData} from "../Utils/Pegar.js";
+import {Tipos} from "../Utils/PokeUtils.js";
 
 let PokeDiv = {
   HTMLGeracional: document.querySelector('.Lista-Gerecional')
@@ -102,13 +103,4 @@ function Criação(Geração){
     </div>`
     })
   return HTMLPoke
-}
-
-
-function Tipos(Types){
-  let HTML = ''
-  Types.forEach(tipo => {
-    HTML += `<div class="TypeP"><img src="../../CSS/Imagens/IconTypes/${tipo.type.name}.png" alt="Tipos"></div>`
-  })
-  return HTML
 }
