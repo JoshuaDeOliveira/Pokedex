@@ -1,6 +1,22 @@
 import "../PokeAPI/PokeData/PokeRegional.js"
+import {Loading} from "../Utils/Carregou.js";
 
-document.querySelectorAll('.Pokemons-Div').forEach(button => {
-  button.addEventListener('click', () => {window.location.href = 'Detalhes.html'})
+CarregarDados('.Pokemons')
+
+document.querySelectorAll('.Pokemons-Div').forEach(PokemonEscolhido => {
+  PokemonEscolhido.addEventListener('click', () => {
+    const ID = PokemonEscolhido.dataset.pokemonId
+    window.location.href = `Detalhes.html?search=${ID}`
+  })
 })
+
+async function CarregarDados(Key) {
+  document.querySelector('.skeleton-card').style.display = 'block'
+  document.querySelector(Key).style.display = 'none'
+  try {
+    Loading('.Pokemons')
+  } catch (error) {
+    console.log(`Esta funcionando? ${error}`)
+  }
+}
 

@@ -1,11 +1,11 @@
-const PokeData = async (ID) => {
+const PokeGerecional = async (ID, KeyBusca, KeyURL) => {
   try{
     const response = await fetch(`https://pokeapi.co/api/v2/${ID}`)
     const Data = await response.json()
 
     const Li = await Promise.all(
-      Data.pokemon_species.map(async (pokemon) => {
-        const SpeciesID = pokemon.url.split('/')[6]
+      Data[KeyBusca].map(async (pokemon) => {
+        const SpeciesID = pokemon[KeyURL].split('/')[6]
         const Unico = await fetch(`https://pokeapi.co/api/v2/pokemon/${SpeciesID}`);
          if (!Unico.ok) throw new Error(`Falha ao buscar ${pokemon.name}`);
         return await Unico.json()
@@ -19,14 +19,9 @@ const PokeData = async (ID) => {
   }
 }
 
-export const PokemonsData = {
-  Gen1Data: await PokeData('generation/1/'),
-  Gen2Data: await PokeData('generation/2/'),
-  Gen3Data: await PokeData('generation/3/'),
-  Gen4Data: await PokeData('generation/4/'),
-  Gen5Data: await PokeData('generation/5/'),
-  Gen6Data: await PokeData('generation/6/'),
-  Gen7Data: await PokeData('generation/7/'),
-  Gen8Data: await PokeData('generation/8/'),
-  Gen9Data: await PokeData('generation/9/')
+
+export let PokemonsData = []
+
+for (let i = 1; i < 10; i++) {
+  PokemonsData[`Gen${i}Data`] = await PokeGerecional(`generation/${i}/`, 'pokemon_species', 'url')
 }

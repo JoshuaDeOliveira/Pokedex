@@ -1,4 +1,4 @@
-import {PokemonsData} from "./PokeData/PokeGeração.js"
+import {PokemonsData} from "../PokeAPI/PokeData/PokeGeração.js"
 import {SalvarData} from "../Utils/Pegar.js";
 
 class ListaRegional{
@@ -15,18 +15,11 @@ class ListaRegional{
   }
 }
 
-const Gerações = {
-  PrimeiraGeração: PokemonsData.Gen1Data.map(pokemon => new ListaRegional(pokemon)),
-  SegundaGeração: PokemonsData.Gen2Data.map(pokemon => new ListaRegional(pokemon)),
-  TerceiraGeração: PokemonsData.Gen3Data.map(pokemon => new ListaRegional(pokemon)),
-  QuartaGeração: PokemonsData.Gen4Data.map(pokemon => new ListaRegional(pokemon)),
-  QuintaGeração: PokemonsData.Gen5Data.map(pokemon => new ListaRegional(pokemon)),
-  SextaGeração: PokemonsData.Gen6Data.map(pokemon => new ListaRegional(pokemon)),
-  SetimaGeração: PokemonsData.Gen7Data.map(pokemon => new ListaRegional(pokemon)),
-  OitavaGeração: PokemonsData.Gen8Data.map(pokemon => new ListaRegional(pokemon)),
-  NonaGeração: PokemonsData.Gen9Data.map(pokemon => new ListaRegional(pokemon))
+let Gerações = {}
+
+export function GerarGerações(){
+  for (let i = 1; i < 10; i++) {
+    Gerações[`Gen_${i}`] = PokemonsData[`Gen${i}Data`].map(pokemon => new ListaRegional(pokemon))
+  }
+  SalvarData('Gens', Gerações)
 }
-
-SalvarData('Gens', Gerações)
-
-

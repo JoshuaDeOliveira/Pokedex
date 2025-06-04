@@ -1,20 +1,24 @@
-const PokeRegião = async (ID) => {
-  try{
-    const response = await fetch(`https://pokeapi.co/api/v2/${ID}`)
-    const Data = await response.json()
+const RegionalLista = ['kanto', 'hoenn', 'original-johto', 'original-sinnoh', 'original-unova','kalos-central','kalos-coastal','kalos-mountain','original-alola', 'galar', 'paldea', 'hisui']
 
-    const Li = await Promise.all(
-      Data.pokemon_entries.map(async (pokemon) => {
-        const SpeciesID = pokemon.pokemon_species.url.split('/')[6]
-        const Unico = await fetch(`https://pokeapi.co/api/v2/pokemon/${SpeciesID}`);
-         if (!Unico.ok) throw new Error(`Falha ao buscar ${pokemon.name}`);
-        return await Unico.json()
+const PokeRegional = async () => {
+  try{
+    const response = await fetch('https://pokeapi.co/api/v2/pokedex/?offset=0&limit=32')
+    const NomesRegionais = await response.json()
+
+    const Li = Promise.all(
+      Object.values(NomesRegionais.results).map(async Regional => {
+        const Unico = await fetch(Regional.url)
+        const Info = await Unico.json()
+        RegionalLista.forEach(Regional => {
+          if (Info.name === Regional) {
+            console.log(Info)
+          }
+        })
       })
-    ); 
-    Li.sort((a, b) => a.id - b.id)
-    return Li
+    );
   } catch (error) {
-    console.log(`Esse foi o erro: ${error.message}`) 
-    return null
+    console.log(`O erro no codigo foi ${error}`)
   }
 }
+
+PokeRegional()

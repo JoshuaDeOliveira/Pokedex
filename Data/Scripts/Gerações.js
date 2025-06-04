@@ -15,7 +15,7 @@ async function CarregarDados(){
   document.querySelector('.Lista-Gerecional').style.display = 'none'
   try {
     RunGeraçõesHTML()
-    Loading()
+    Loading('.Lista-Gerecional')
   } catch (error) {
     console.log('Esta funcionando?', error)
   }
