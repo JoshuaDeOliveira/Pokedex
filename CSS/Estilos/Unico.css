@@ -313,6 +313,7 @@ meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
 }
 
 .Aba-Evolucion{
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;

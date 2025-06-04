@@ -74,7 +74,7 @@ function Botoes(Pokemon){
   document.querySelector('.Button-Evolution').addEventListener('click', async () => {
     await EvolutionHTML(Pokemon)
   });
-  }
+}
 
 function BaseHTML(Pokemon){
   const InserirHTML = document.querySelector('.Main-Pokedex')
@@ -113,7 +113,11 @@ function BaseHTML(Pokemon){
         <p class="Infos">Egg Groups: ${PokeUtils.Eggs(Pokemon.EggGroup)}</p>
       </div>
     </div>`
-  InserirHTML.innerHTML = HTML
+  const container = document.createElement('div')
+  container.innerHTML = HTML
+  while (container.firstChild) {
+    InserirHTML.appendChild(container.firstChild)
+  }
 }
 
 async function StatusHTML(Pokemon){
@@ -176,38 +180,37 @@ async function StatusHTML(Pokemon){
           ${await Mecanica(Pokemon.Tipos)}
         </div>
       </div>`
-  InserirHTML.innerHTML = HTML
+  const container = document.createElement('div')
+  container.innerHTML = HTML
+  while (container.firstChild) {
+    InserirHTML.appendChild(container.firstChild)
+  }
 }
 
 async function EvolutionHTML(Pokemon){
   const InserirHTML = document.querySelector('.Main-Pokedex')
   InserirHTML.innerHTML = ''
+  const Arvore = await EvolutionTree(Pokemon.Evoluções)
   const HTML = `<div class="Evolution-Info">
         <h1 class="Titulos">Arvore de Evolução Principal</h1>
         <div class="Evolution-Tree">
           <div class="Aba-Evolucion">
-            <h1 class="Nomes-Pokemons">Pichu</h1>
-            <img class="Sprite-Pokemon" src="./CSS/Imagens/Sprites-Testes/172.png" alt="">
+            ${Arvore.PrimeiraEvo}
           </div>
           <div class="Aba-Evolucion">
-            <h1 class="Nomes-Pokemons">Pikachu</h1>
-            <img class="Sprite-Pokemon" src="./CSS/Imagens/Sprites-Testes/25.png" alt="">
+            ${Arvore.SegundaEvo}
           </div>
           <div class="Aba-Evolucion">
-            <h1 class="Nomes-Pokemons">Raichu</h1>
-            <img class="Sprite-Pokemon" src="./CSS/Imagens/Sprites-Testes/26.png" alt="">
+            ${Arvore.TerceiraEvo}
           </div>
         </div>
-        <h1 class="Titulos">Formas Alternativas</h1>
-        <div class="Evolution-Alternative">
-          <div class="Alternative">
-            <h1 class="Nomes-Pokemons">pikachu-rock-star</h1>
-            <img class="Sprite-Pokemon" src="./CSS/Imagens/Sprites-Testes/10080.png" alt="">
-          </div>
-        </div>
+        ${await VersõesAlternativas(Pokemon.Variações)}
       </div>`
-  InserirHTML.innerHTML = HTML
-  await EvolutionTree(Pokemon.Evoluções)
+  const container = document.createElement('div')
+  container.innerHTML = HTML
+  while (container.firstChild) {
+    InserirHTML.appendChild(container.firstChild)
+  }
 }
 
 async function EvolutionTree(Criaturas){
@@ -215,18 +218,83 @@ async function EvolutionTree(Criaturas){
     let Primeiro = ''
     let Segundo = ''
     let Terceiro = ''
+    let Evoluções;
+
     const response = await fetch(Criaturas)
     const info = await response.json()
-    Primeiro = info.chain.species.name
-    info.chain.evolves_to.forEach(De => {
-      Segundo = De.species.name
-      De.evolves_to.forEach(D => {
-        Terceiro = D.species.name
-      })
-    })
+    const NameStarter = info.chain.species.name
+    const ImgStarter = await FetchEvo(NameStarter)
 
+    Primeiro = `
+    <h1 class="Nomes-Pokemons">${NameStarter}</h1>
+    <img class="Sprite-Pokemon" src="${ImgStarter}" alt="">
+    `
+
+    if (info.chain.evolves_to.length > 0) {
+      const NameMid = info.chain.evolves_to[0].species.name
+      const ImgMid = await FetchEvo(NameMid)
+
+      Segundo = `
+      <h1 class="Nomes-Pokemons">${NameMid}</h1>
+      <img class="Sprite-Pokemon" src="${ImgMid}" alt="">`
+
+      if(info.chain.evolves_to[0].evolves_to.length > 0){
+        const NameFinal = info.chain.evolves_to[0].evolves_to[0].species.name
+        const ImgFinal = await FetchEvo(NameFinal)
+
+        Terceiro = `
+        <h1 class="Nomes-Pokemons">${NameFinal}</h1>
+        <img class="Sprite-Pokemon" src="${ImgFinal}" alt="">`
+      }
+    }
+
+    return Evoluções = {PrimeiraEvo: Primeiro, SegundaEvo: Segundo, TerceiraEvo: Terceiro}
   } catch (error) {
     console.log(`Deu esse erro ${error}`)
+  }
+}
+
+async function FetchEvo(Name) {
+  const Busca = await fetch(`https://pokeapi.co/api/v2/pokemon/${Name}`)
+  const ResBusca = await Busca.json()
+  return ResBusca.sprites.other["official-artwork"].front_default
+}
+
+async function VersõesAlternativas(Lista){
+  try {
+    let HTML = ''
+    const ListaAlternativa = await Promise.all(
+      Lista
+      .filter(item => item.is_default === false)
+      .map(async (Pokemon) => {
+        const res = await fetch(Pokemon.pokemon.url)
+        return await res.json()
+      })
+    )
+    if (ListaAlternativa.length === 0){
+      HTML += `
+      <div class="Alternative">
+        <h1>ESSE POKEMON NÃO CONTEM FORMAS ALTERNATIVAS</h1>
+      </div>`
+    } else {
+      ListaAlternativa.forEach(item => {
+        HTML += `
+        <div class="Alternative">
+          <h1 class="Nomes-Pokemons">${item.name}</h1>
+          <img class="Sprite-Pokemon" src="${item.sprites.other["official-artwork"].front_default}" alt="">
+        </div>`
+      })
+    }
+
+    return `
+    <div class='Formas-Alternativas'>
+      <h1 class="Titulos">Formas Alternativas</h1>
+      <div class="Evolution-Alternative">
+        ${HTML}
+      </div>
+    </div>`
+  } catch (error) {
+    console.log(`Esse foi o erro encontrado ${error}`)
   }
 }
 
@@ -241,19 +309,28 @@ async function Mecanica(Tipos) {
           const info = await response.json()
 
           const TypesInfos = info.damage_relations
-          TypesInfos.double_damage_from.forEach(tipo => {
+
+          if (TypesInfos.double_damage_from.length === 0) {
+            HTMLFraquezas += `<div class="TypeP"><h1>ESSE POKEMON NÃO CONTEM FRAQUEZAS</h1></div>`
+          } else {
+            TypesInfos.double_damage_from.forEach(tipo => {
             HTMLFraquezas += `<div class="TypeP"><img src="../../CSS/Imagens/IconTypes/${tipo.name}.png" alt="Tipos"></div>`
           })
-          TypesInfos.double_damage_to.forEach(tipo => {
+          }
+          if (TypesInfos.double_damage_to.length === 0) {
+            HTMLVantagens += `<div class="TypeP"><h1>ESSE POKEMON NÃO CONTEM VANTAGENS</h1></div>`
+          } else {
+            TypesInfos.double_damage_to.forEach(tipo => {
             HTMLVantagens += `<div class="TypeP"><img src="../../CSS/Imagens/IconTypes/${tipo.name}.png" alt="Tipos"></div>`
           })
+          }
           return {
             Fraquezas: HTMLFraquezas,
             Vantagens: HTMLVantagens
           }
         } catch (error) {
           console.log(`Erro ao processar o tipo ${tipo.type.name}: ${error}`)
-          return ''
+          return { Fraquezas: '', Vantagens: '' }
         }
       })
     )

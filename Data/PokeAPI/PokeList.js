@@ -1,4 +1,4 @@
-import {PokemonsData} from "./PokeData.js"
+import {PokemonsData} from "./PokeData/PokeGeração.js"
 import {SalvarData} from "../Utils/Pegar.js";
 
 class ListaRegional{
