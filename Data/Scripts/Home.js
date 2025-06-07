@@ -1,4 +1,5 @@
 import "../PokeAPI/PokeData/PokeRegional.js"
+import {RunHTMLRegional} from "../Infos/Regioes.js";
 import {Loading} from "../Utils/Carregou.js";
 
 CarregarDados('.Pokemons')
@@ -14,6 +15,7 @@ async function CarregarDados(Key) {
   document.querySelector('.skeleton-card').style.display = 'block'
   document.querySelector(Key).style.display = 'none'
   try {
+    RunHTMLRegional()
     Loading('.Pokemons')
   } catch (error) {
     console.log(`Esta funcionando? ${error}`)

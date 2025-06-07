@@ -1,5 +1,7 @@
 import {PokemonsData} from "../PokeAPI/PokeData/PokeGeração.js"
+import {Regioes, RegionalLista} from "../PokeAPI/PokeData/PokeRegional.js";
 import {SalvarData} from "../Utils/Pegar.js";
+import {Nome} from "../Utils/Nome.js";
 
 class ListaRegional{
   Nome;
@@ -22,4 +24,13 @@ export function GerarGerações(){
     Gerações[`Gen_${i}`] = PokemonsData[`Gen${i}Data`].map(pokemon => new ListaRegional(pokemon))
   }
   SalvarData('Gens', Gerações)
+}
+
+let Regional = {}
+
+export function GerarRegioes(){
+  for (const NomeRegião of RegionalLista) {
+    Regional[`Região${Nome(NomeRegião)}`] = Regioes[`${NomeRegião}Data`].map(pokemon => new ListaRegional(pokemon))
+  }
+  SalvarData('Regioes', Regional)
 }

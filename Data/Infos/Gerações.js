@@ -1,7 +1,7 @@
 import {GerarGerações} from '../PokeAPI/PokeList.js';
-import {Formatar} from "../Utils/formatar.js";
+import {Criação} from "../Utils/Criar.js";
 import {PegarData} from "../Utils/Pegar.js";
-import {PokeUtils} from "../Utils/PokeUtils.js";
+
 
 let PokeDiv = {
   HTMLGeracional: document.querySelector('.Lista-Gerecional')
@@ -82,27 +82,4 @@ export function RunGeraçõesHTML(){
     }})
     })
   })
-}
-
-function Criação(Geração){
-  let HTMLPoke = ''
-  Geração.forEach(pokemon => {
-    HTMLPoke += `
-    <div class="Pokemons-Div" data-pokemon-id="${pokemon.id}">
-      <div class="Img-Poke">
-        <img class="Sprite-Pokemon" src="${pokemon.Img}" alt="">
-        <img class="Pokeball-Ani" src="./CSS/Imagens/pokeball.png" alt="">
-      </div>
-      <div class="ID-Poke">
-        <p class="ID">#${Formatar(pokemon.id)}</p>
-      </div>
-      <div class="Nome-Poke">
-        <h2 class="NomeP">${pokemon.Nome}</h2>
-      </div>
-      <div class="Types-Poke">
-        ${PokeUtils.Tipos(pokemon.Tipos)}
-      </div>
-    </div>`
-    })
-  return HTMLPoke
 }
