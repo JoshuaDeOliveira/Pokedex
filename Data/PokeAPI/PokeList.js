@@ -2,18 +2,21 @@ import {PokemonsData} from "../PokeAPI/PokeData/PokeGeração.js"
 import {Regioes, RegionalLista} from "../PokeAPI/PokeData/PokeRegional.js";
 import {SalvarData} from "../Utils/Pegar.js";
 import {Nome} from "../Utils/Nome.js";
+import {GeraçãoId} from "../Utils/Geração.js";
 
 class ListaRegional{
   Nome;
   Img;
   Tipos;
   id;
+  IdDiv;
 
   constructor(Data){
     this.Nome = Data.name
     this.Img = Data.sprites.front_default
     this.Tipos = Data.types
     this.id = Data.id 
+    this.IdDiv = GeraçãoId()
   }
 }
 

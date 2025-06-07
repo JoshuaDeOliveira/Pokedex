@@ -96,7 +96,7 @@ export function RunHTMLRegional(){
       Região.forEach(pokemon => {
         pokemon.Tipos.forEach(tipo => {
         if (tipo.slot === 1) {
-          PokemonDiv = document.querySelector([`[data-pokemon-id="${pokemon.id}"`])
+          PokemonDiv = document.querySelector([`[data-pokemon-id="${pokemon.IdDiv}"`])
           PokemonDiv.style.background = `var(--${tipo.type.name})`
       }})
     })
