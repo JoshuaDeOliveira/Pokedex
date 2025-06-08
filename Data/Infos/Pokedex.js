@@ -1,6 +1,8 @@
 import {GerarInfo} from "../PokeAPI/PokeList.js";
+import {ContadorDeId} from "../Utils/Calculo.js";
 
 const Inserir = document.querySelector('.Informações')
+let Gerar = ContadorDeId()
 
 export function RunPokedex(){
   PokemonEscolhido()
@@ -15,8 +17,8 @@ export function RunPokedex(){
 }
 
 async function PokemonEscolhido(){
-  const Data = await GerarInfo(1)
-  console.log(Data)
+  let ID = Gerar()
+  const Data = await GerarInfo(ID)
   let HTML;
   HTML = 
     `
@@ -24,5 +26,5 @@ async function PokemonEscolhido(){
     <h1 class="Nome-Pokemon">${Data.Nome}</h1>
     <span class="Numero-Pokemon">${Data.id} -</span>
     `
-  Inserir.innerHTML = HTML
+  Inserir.innerHTML = HTML 
 }
