@@ -3,6 +3,38 @@
   grid-template-columns: repeat(6, 1fr);
 }
 
+@media screen and (max-width: 1170px) {
+  .Grid-Pokemons{
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+   .Grid-Pokemons{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .Grid-Pokemons{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 630px) {
+   .Grid-Pokemons{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 420px) {
+   .Grid-Pokemons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /*Div Pokemon*/
 
 .Img-Poke{
@@ -83,17 +115,6 @@
 
 .TypeP > img{
   height: 34px;
-}
-
-
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-
-  from{
-    transform: rotate(0deg);
-  }
 }
 
 

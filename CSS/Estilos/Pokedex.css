@@ -20,11 +20,12 @@ main{
 
 .Buttons{
   background-color: #444;
-  padding: 10px 40px;
+  padding: 15px 0px;
   border: 1px solid black;
   font-weight: 600;
   color: white;
   cursor: pointer;
+  width: 115px;
   box-shadow: -4px 4px black;
 }
 
@@ -34,7 +35,7 @@ main{
   right: 90px;
 }
 
-.Right{
+.Previous{
   position: absolute;
   top: 540px;
   left: 60px;

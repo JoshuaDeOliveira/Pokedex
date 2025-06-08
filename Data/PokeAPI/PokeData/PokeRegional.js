@@ -14,8 +14,12 @@ const PokeRegional = async (Key) => {
               Regioes.map(async Poke => {
                 const Pokemons = Poke.pokemon_species
                 const SpeciesId = Pokemons.url.split('/')[6]
+                const PokeName = Pokemons.name
                 const Teste = await fetch(`https://pokeapi.co/api/v2/pokemon/${SpeciesId}`) //NÃO USAR A PROPIEDADE NAME POIS NÃO É CONFIAVEL PELA FORMA DE ORGANIZAÇÃO DA PROPRIA API
-                return await Teste.json()
+                return {
+                  PokeList: await Teste.json(),
+                  PokeName: PokeName
+                } 
               }
             ))
             return Separar

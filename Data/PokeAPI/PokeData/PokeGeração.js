@@ -7,11 +7,15 @@ const PokeGerecional = async (ID, KeyBusca, KeyURL) => {
       Data[KeyBusca].map(async (pokemon) => {
         const SpeciesID = pokemon[KeyURL].split('/')[6]
         const Unico = await fetch(`https://pokeapi.co/api/v2/pokemon/${SpeciesID}`);
+        const PokeName = pokemon.name
          if (!Unico.ok) throw new Error(`Falha ao buscar ${pokemon.name}`);
-        return await Unico.json()
+        return {
+          PokeList: await Unico.json(),
+          PokeName: PokeName
+        }
       })
     ); 
-    Li.sort((a, b) => a.id - b.id)
+    Li.sort((a, b) => a.PokeList.id - b.PokeList.id)
     return Li
   } catch (error) {
     console.log(`Esse foi o erro: ${error.message}`) 

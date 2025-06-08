@@ -77,7 +77,7 @@ export function RunGeraçõesHTML(){
     Geração.forEach(pokemon => {
       pokemon.Tipos.forEach(tipo => {
       if (tipo.slot === 1) {
-        PokemonDiv = document.querySelector([`[data-pokemon-id="${pokemon.IdDiv}"`])
+        PokemonDiv = document.querySelector([`[data-div-id="${pokemon.IdDiv}"`])
         PokemonDiv.style.background = `var(--${tipo.type.name})`
     }})
     })

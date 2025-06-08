@@ -1,4 +1,3 @@
-import "../PokeAPI/PokeData/PokeRegional.js"
 import {RunHTMLRegional} from "../Infos/Regioes.js";
 import {Loading} from "../Utils/Carregou.js";
 
