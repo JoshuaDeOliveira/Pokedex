@@ -61,8 +61,8 @@ main{
   font-family: var(--Nomes);
   font-weight: bolder;
   position: absolute;
-  top: 355px;
-  right: 195px;
+  top: 352px;
+  right: 217px;
 }
 
 .Pesquisar-Pokemon{

@@ -15,14 +15,14 @@ export function RunPokedex(){
 }
 
 async function PokemonEscolhido(){
-  const data = await GerarInfo()
-  console.log(data)
-  
-  const HTML = 
-  `
-  <img src="./CSS/Imagens/Pokedex/charizard.png" alt="" class="Pokemon-Sprite">
-  <h1 class="Nome-Pokemon">Pikachu</h1>
-  <span class="Numero-Pokemon">24 -</span>
-  `
+  const Data = await GerarInfo(1)
+  console.log(Data)
+  let HTML;
+  HTML = 
+    `
+    <img src="${Data.img}" alt="" class="Pokemon-Sprite">
+    <h1 class="Nome-Pokemon">${Data.Nome}</h1>
+    <span class="Numero-Pokemon">${Data.id} -</span>
+    `
   Inserir.innerHTML = HTML
 }

@@ -55,7 +55,8 @@ class PokeInterativa{
   }
 }
 
-export async function GerarInfo(){
-  const Data = await GerarData()
+export async function GerarInfo(ID){
+  const Data = await GerarData(ID)
   const Info = new PokeInterativa(Data)
+  return Info
 }
