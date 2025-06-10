@@ -1,5 +1,5 @@
-import {PegarData} from "../Utils/Pegar.js";
-import {Criação} from "../Utils/Criar.js";
+import {PegarData} from "../Utils/PegarDados.js";
+import {Criação} from "../Utils/PokeUtils.js";
 import {GerarRegioes} from "../PokeAPI/PokeList.js";
 
 let PokeDiv = document.querySelector(".Pokemons")

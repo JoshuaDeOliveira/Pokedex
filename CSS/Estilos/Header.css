@@ -30,6 +30,7 @@ nav{
   position: relative;
   margin: 0px auto;
   margin-top: -24px;
+  width: 100%;
   max-width: 1224px;
   background-color: #494444;
   z-index: 100;
@@ -141,4 +142,5 @@ footer{
 footer > span{
   text-align: center;
   margin: auto;
+  margin-top: 6px;
 }

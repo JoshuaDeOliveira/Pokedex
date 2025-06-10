@@ -1,14 +1,7 @@
 import {RunGeraçõesHTML} from "../Infos/Gerações.js";
-import {Loading} from "../Utils/Carregou.js";
+import {Loading, BotãoEntrar} from "../Utils/HTMLUtils.js";
 
 CarregarDados()
-
-document.querySelectorAll('.Pokemons-Div').forEach(PokemonEscolhido => {
-  PokemonEscolhido.addEventListener('click', () => {
-    const ID = PokemonEscolhido.dataset.pokemonId
-    window.location.href = `Detalhes.html?search=${ID}`
-  })
-})
 
 async function CarregarDados(){
   document.querySelector('.skeleton-card').style.display = 'block'
@@ -16,6 +9,7 @@ async function CarregarDados(){
   try {
     RunGeraçõesHTML()
     Loading('.Lista-Gerecional')
+    BotãoEntrar()
   } catch (error) {
     console.log('Esta funcionando?', error)
   }

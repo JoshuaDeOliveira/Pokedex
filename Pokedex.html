@@ -47,33 +47,41 @@
         <p>Gerações</p>
       </a>
     </div>
-    <div class="Pesquisa-Div">
-      <input type="text" class="Pesquisar" placeholder="Search">
-      <button class="Enviar">
-        <img src="./CSS/Imagens/search-icon.png" alt="">
-      </button>
+     <div class="Data-Menu Info">
+      <a href="Info.html" class="Data-Menu">
+        <img src="./CSS/Imagens/Github.png" alt="Github">
+        <p>Sobre o Projeto</p>
+      </a>
     </div>
   </nav>
   <main>
-    <div class="Pokedex-Interativa">
-      <img class="Pokedex" src="./CSS/Imagens/Pokedex/pokedex.png" alt="">
-      <div class="Componentes">
-        <div class="Informações">
-          <img src="./CSS/Imagens/pokeball.png" alt="" class="Pokemon-Sprite Pokeball">
-          <h1 class="Nome-Pokemon">Loading...</h1>
-          <span class="Numero-Pokemon"></span>
-        </div>
-        <div class="Botoes">
-          <button class="Next Buttons">Next</button>
-          <button class="Previous Buttons">Previous</button>
-          <input type="text" class="Pesquisar-Pokemon" placeholder="Name or Number">
+    <div class="Pokedex">
+      <h1 class="Alerta">Alert - Essa Pokedex funciona apenas ate a Quinta Geração</h1>
+      <div class="Pokedex-Interativa">
+        <img class="Pokedex" src="./CSS/Imagens/Pokedex/pokedex.png" alt="">
+        <div class="Componentes">
+          <div class="Informações">
+            <img src="./CSS/Imagens/pokeball.png" alt="" class="Pokemon-Sprite Pokeball">
+            <div class="Infos-Pokedex">
+              <h1 class="Nome-Pokemon">Loading...</h1>
+              <span class="Numero-Pokemon"></span>
+            </div>
+          </div>
+          <div class="Botoes">
+            <div class="Pesquisar-Pokedex">
+              <input type="text" class="Pesquisar-Pokemon" placeholder="Name or Number">
+              <button class="btn-pesquisar"><img src="./CSS/Imagens/search-icon.png" alt=""></button>
+            </div>
+            <button class="Next Buttons">Next</button>
+            <button class="Previous Buttons">Previous</button>
+          </div>
         </div>
       </div>
     </div>
   </main>
   <footer>
-    <span>All content & design © Pokémon Database, 2008-2025. Pokémon images & names © 1995-2025 Nintendo/Game Freak.</span>
-    <span>Esse site é apenas uma paradia criada para estudos por Joshua Oliveira</span>
+    <span>Pokémon images & names © 1995-2025 Nintendo/Game Freak.</span>
+    <span>Esse site é apenas uma parodia criada para estudos por Joshua Oliveira</span>
   </footer>
 
   <script type="module" src="./Data/Scripts/PokedexInterativa.js"></script>

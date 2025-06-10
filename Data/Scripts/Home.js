@@ -1,14 +1,7 @@
 import {RunHTMLRegional} from "../Infos/Regioes.js";
-import {Loading} from "../Utils/Carregou.js";
+import {Loading, BotãoEntrar} from "../Utils/HTMLUtils.js";
 
 CarregarDados('.Pokemons')
-
-document.querySelectorAll('.Pokemons-Div').forEach(PokemonEscolhido => {
-  PokemonEscolhido.addEventListener('click', () => {
-    const ID = PokemonEscolhido.dataset.pokemonId
-    window.location.href = `Detalhes.html?search=${ID}`
-  })
-})
 
 async function CarregarDados(Key) {
   document.querySelector('.skeleton-card').style.display = 'block'
@@ -16,6 +9,7 @@ async function CarregarDados(Key) {
   try {
     RunHTMLRegional()
     Loading('.Pokemons')
+    BotãoEntrar()
   } catch (error) {
     console.log(`Esta funcionando? ${error}`)
   }

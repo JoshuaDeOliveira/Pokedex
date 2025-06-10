@@ -1,6 +1,6 @@
 import {BuscadorPoke} from "../PokeAPI/Pokemon.js";
 import {PokeInfo} from "../PokeAPI/PokemonInfo.js";
-import {Formatar} from "../Utils/formatar.js";
+import {Formatar} from "../Utils/StringUtils.js";
 import {PokeUtils} from "../Utils/PokeUtils.js";
 
 
@@ -190,6 +190,7 @@ async function StatusHTML(Pokemon){
 async function EvolutionHTML(Pokemon){
   const InserirHTML = document.querySelector('.Main-Pokedex')
   InserirHTML.innerHTML = ''
+  console.log(Pokemon.Evoluções)
   const Arvore = await EvolutionTree(Pokemon.Evoluções)
   const HTML = `<div class="Evolution-Info">
         <h1 class="Titulos">Arvore de Evolução Principal</h1>
@@ -222,8 +223,9 @@ async function EvolutionTree(Criaturas){
 
     const response = await fetch(Criaturas)
     const info = await response.json()
+    const BuscarStarter = info.chain.species.url.split('/')[6]
     const NameStarter = info.chain.species.name
-    const ImgStarter = await FetchEvo(NameStarter)
+    const ImgStarter = await FetchEvo(BuscarStarter)
 
     Primeiro = `
     <h1 class="Nomes-Pokemons">${NameStarter}</h1>
@@ -231,16 +233,18 @@ async function EvolutionTree(Criaturas){
     `
 
     if (info.chain.evolves_to.length > 0) {
+      const BuscarMid = info.chain.evolves_to[0].species.url.split('/')[6]
       const NameMid = info.chain.evolves_to[0].species.name
-      const ImgMid = await FetchEvo(NameMid)
+      const ImgMid = await FetchEvo(BuscarMid)
 
       Segundo = `
       <h1 class="Nomes-Pokemons">${NameMid}</h1>
       <img class="Sprite-Pokemon" src="${ImgMid}" alt="">`
 
       if(info.chain.evolves_to[0].evolves_to.length > 0){
+        const BuscarFinal = info.chain.evolves_to[0].evolves_to[0].species.url.split('/')[6]
         const NameFinal = info.chain.evolves_to[0].evolves_to[0].species.name
-        const ImgFinal = await FetchEvo(NameFinal)
+        const ImgFinal = await FetchEvo(BuscarFinal)
 
         Terceiro = `
         <h1 class="Nomes-Pokemons">${NameFinal}</h1>

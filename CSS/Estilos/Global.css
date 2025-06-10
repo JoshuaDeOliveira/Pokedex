@@ -47,6 +47,21 @@
   --psychic: rgb(93, 56, 128);
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 
 .skeleton-grid{
   display: grid;

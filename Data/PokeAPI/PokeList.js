@@ -1,9 +1,9 @@
 import {GerarData} from "../PokeAPI/PokeData/PokedexInterativa.js";
 import {PokemonsData} from "../PokeAPI/PokeData/PokeGeração.js"
 import {Regioes, RegionalLista} from "../PokeAPI/PokeData/PokeRegional.js";
-import {SalvarData, PegarData} from "../Utils/Pegar.js";
-import {Nome} from "../Utils/Nome.js";
-import {GeraçãoId} from "../Utils/Geração.js";
+import {SalvarData, PegarData} from "../Utils/PegarDados.js";
+import {Nome} from "../Utils/StringUtils.js";
+import {GeraçãoId} from "../Utils/CalculoUtils.js";
 
 class ListaRegional{
   Nome;
@@ -49,14 +49,29 @@ class PokeInterativa{
   id;
 
   constructor(Data){
+
+    const AnimatedSprite = Data.sprites?.versions?.['generation-v']['black-white']['animated']['front_default']
+
     this.Nome = Data.name
     this.id = Data.id
-    this.img = Data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+    this.img = AnimatedSprite || Data.img
   }
+}
+
+
+const ErrorJoke = {
+  name: 'Missingno',
+  id: 404,
+  img: '../../CSS/Imagens/Missingno.gif'
 }
 
 export async function GerarInfo(ID){
   const Data = await GerarData(ID)
-  const Info = new PokeInterativa(Data)
-  return Info
+  if (Data === 'Não Encontrado') {
+    const Info = new PokeInterativa(ErrorJoke)
+    return Info
+  } else {
+    const Info = new PokeInterativa(Data)
+    return Info
+  }
 }
